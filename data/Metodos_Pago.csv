@@ -1,0 +1,7 @@
+Metodo,Descripcion,Codigo
+Tarjeta de Credito,Pago con tarjeta de credito Visa/MasterCard,TDC
+Tarjeta de Debito,Pago con tarjeta de debito,TDD
+Efectivo,Pago en efectivo,EFEC
+Transferencia Bancaria,Transferencia desde una cuenta bancaria,TRANSF
+PayPal,Pago a traves de PayPal,PAYP
+Bitcoin,Pago con criptomoneda Bitcoin,BTC

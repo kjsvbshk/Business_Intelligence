@@ -43,7 +43,9 @@ CREATE TABLE IF NOT EXISTS Detalle_Ventas (
 -- 5. Tabla de Metodos_Pago
 CREATE TABLE IF NOT EXISTS Metodos_Pago (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    Metodo VARCHAR(50) NOT NULL
+    Metodo VARCHAR(50) NOT NULL,
+    Descripcion VARCHAR(255),
+    Codigos VARCHAR(10)
 );
 
 -- 6. Tabla de Inventario
