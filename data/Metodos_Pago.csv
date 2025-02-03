@@ -1,4 +1,4 @@
-Metodo,Descripcion,Codigo
+Metodo,Descripcion,Codigos
 Tarjeta de Credito,Pago con tarjeta de credito Visa/MasterCard,TDC
 Tarjeta de Debito,Pago con tarjeta de debito,TDD
 Efectivo,Pago en efectivo,EFEC

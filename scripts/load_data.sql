@@ -1,13 +1,5 @@
 USE inversiones_db;
 
--- tabla de clientes
-LOAD DATA INFILE '/var/lib/mysql-files/Clientes.csv'
-INTO TABLE Clientes
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
-
 -- tabla de productos
 LOAD DATA INFILE '/var/lib/mysql-files/Productos.csv'
 INTO TABLE Productos
