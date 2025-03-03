@@ -227,5 +227,18 @@ CREATE TABLE IF NOT EXISTS Flujo_Caja (
     Fecha DATE NOT NULL,
     Entradas DECIMAL(15, 2) NOT NULL,
     Salidas DECIMAL(15, 2) NOT NULL,
-    Saldo DECIMAL(15, 2) NOT NULL
+    Saldo DECIMAL(15, 2) NOT NULL,
+    Ingreso_ID INT,
+    Gasto_ID INT,
+    Venta_ID INT,
+    Compra_ID INT,
+    Gastos_Nomina_ID INT,
+    Impuesto_ID INT,
+    FOREIGN KEY (Ingreso_ID) REFERENCES Ingresos(ID),
+    FOREIGN KEY (Gasto_ID) REFERENCES Gastos(ID),
+    FOREIGN KEY (Venta_ID) REFERENCES Ventas(ID),
+    FOREIGN KEY (Compra_ID) REFERENCES Compras(ID),
+    FOREIGN KEY (Gastos_Nomina_ID) REFERENCES Gastos_Nomina(ID),
+    FOREIGN KEY (Impuesto_ID) REFERENCES Impuestos(ID)
+    
 );
