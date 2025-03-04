@@ -222,23 +222,24 @@ CREATE TABLE IF NOT EXISTS Balance_General (
 );
 
 -- 25. Tabla de Flujo_Caja
-CREATE TABLE IF NOT EXISTS Flujo_Caja (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE Flujo_Caja (
+    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     Fecha DATE NOT NULL,
-    Entradas DECIMAL(15, 2) NOT NULL,
-    Salidas DECIMAL(15, 2) NOT NULL,
-    Saldo DECIMAL(15, 2) NOT NULL,
-    Ingreso_ID INT,
-    Gasto_ID INT,
-    Venta_ID INT,
-    Compra_ID INT,
-    Gastos_Nomina_ID INT,
-    Impuesto_ID INT,
-    FOREIGN KEY (Ingreso_ID) REFERENCES Ingresos(ID),
-    FOREIGN KEY (Gasto_ID) REFERENCES Gastos(ID),
-    FOREIGN KEY (Venta_ID) REFERENCES Ventas(ID),
-    FOREIGN KEY (Compra_ID) REFERENCES Compras(ID),
-    FOREIGN KEY (Gastos_Nomina_ID) REFERENCES Gastos_Nomina(ID),
-    FOREIGN KEY (Impuesto_ID) REFERENCES Impuestos(ID)
-    
+    Nombre_Tabla ENUM('Ingresos', 'Gastos', 'Ventas', 'Compras', 'Gastos_Nomina', 'Impuestos') NOT NULL,
+    Entradas DECIMAL(15,2) NOT NULL DEFAULT 0.00,
+    Salidas DECIMAL(15,2) NOT NULL DEFAULT 0.00,
+    Total DECIMAL(15,2) NOT NULL DEFAULT 0.00,
+    Ingreso_ID INT DEFAULT NULL,
+    Gasto_ID INT DEFAULT NULL,
+    Venta_ID INT DEFAULT NULL,
+    Compra_ID INT DEFAULT NULL,
+    Gastos_Nomina_ID INT DEFAULT NULL,
+    Impuesto_ID INT DEFAULT NULL,
+
+    FOREIGN KEY (Ingreso_ID) REFERENCES Ingresos(ID) ON DELETE SET NULL,
+    FOREIGN KEY (Gasto_ID) REFERENCES Gastos(ID) ON DELETE SET NULL,
+    FOREIGN KEY (Venta_ID) REFERENCES Ventas(ID) ON DELETE SET NULL,
+    FOREIGN KEY (Compra_ID) REFERENCES Compras(ID) ON DELETE SET NULL,
+    FOREIGN KEY (Gastos_Nomina_ID) REFERENCES Gastos_Nomina(ID) ON DELETE SET NULL,
+    FOREIGN KEY (Impuesto_ID) REFERENCES Impuestos(ID) ON DELETE SET NULL
 );
