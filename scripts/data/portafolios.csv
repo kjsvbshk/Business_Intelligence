@@ -1,0 +1,51 @@
+Usuario_ID,Nombre,Descripcion,Fecha_Creacion
+1,Portafolio Conservador,Portafolio enfocado en inversiones de bajo riesgo y rentabilidad estable,2025-01-15
+2,Portafolio Moderado,Combinacion equilibrada de activos de renta fija y variable,2025-02-10
+3,Portafolio Agresivo,Inversiones orientadas a alto rendimiento con mayor riesgo,2025-03-05
+4,Portafolio de Ingresos,Enfocado en generar ingresos recurrentes a traves de dividendos,2025-01-20
+5,Portafolio de Crecimiento,Buscando apreciacion de capital a largo plazo,2025-02-25
+6,Portafolio Internacional,Inversiones diversificadas en mercados extranjeros,2025-03-15
+7,Portafolio Tecnologico,Concentrado en empresas del sector tecnologico,2025-01-30
+8,Portafolio Ecologico,Inversiones en companias con practicas sostenibles,2025-02-18
+9,Portafolio de Valor,Enfocado en acciones infravaloradas con potencial de crecimiento,2025-03-10
+10,Portafolio de Divisas,Operaciones en mercados de cambio de monedas,2025-01-25
+11,Portafolio de Bienes Raices,Inversiones en propiedades inmobiliarias,2025-02-12
+12,Portafolio de Metales Preciosos,Enfocado en oro, plata y otros metales valiosos,2025-03-08
+13,Portafolio de Energia,Inversiones en el sector energetico,2025-01-22
+14,Portafolio de Salud,Concentrado en empresas de la industria de la salud,2025-02-28
+15,Portafolio de Pequenas Empresas,Inversiones en pequenas y medianas empresas con alto potencial,2025-03-12
+16,Portafolio de Bonos Municipales,Enfocado en bonos emitidos por gobiernos locales,2025-01-18
+17,Portafolio de Infraestructura,Inversiones en proyectos de infraestructura pública y privada,2025-02-14
+18,Portafolio de Innovacion,Concentrado en startups y empresas innovadoras,2025-03-07
+19,Portafolio de Consumo,Inversiones en empresas de bienes de consumo masivo,2025-01-27
+20,Portafolio de Transporte,Enfocado en el sector de transporte y logistica,2025-02-20
+21,Portafolio de Agricultura,Inversiones en el sector agricola y agroindustrial,2025-03-14
+22,Portafolio de Telecomunicaciones,Concentrado en empresas de telecomunicaciones,2025-01-17
+23,Portafolio de Finanzas,Inversiones en bancos y entidades financieras,2025-02-16
+24,Portafolio de Educacion,Enfocado en empresas del sector educativo,2025-03-09
+25,Portafolio de Entretenimiento,Inversiones en la industria del entretenimiento,2025-01-29
+26,Portafolio de Automotriz,Concentrado en fabricantes y proveedores de automoviles,2025-02-22
+27,Portafolio de Alimentos y Bebidas,Inversiones en empresas de alimentos y bebidas,2025-03-11
+28,Portafolio de Retail,Enfocado en cadenas minoristas y comercios,2025-01-19
+29,Portafolio de Servicios Públicos,Inversiones en empresas de servicios públicos,2025-02-24
+30,Portafolio de Turismo,Concentrado en la industria turistica y hotelera,2025-03-13
+31,Portafolio de Defensa,Inversiones en el sector de defensa y seguridad,2025-01-21
+32,Portafolio de Medios,Enfocado en empresas de medios de comunicacion,2025-02-27
+33,Portafolio de Moda,Inversiones en la industria de la moda y textiles,2025-03-06
+34,Portafolio de Construccion,Concentrado en empresas constructoras e inmobiliarias,2025-01-26
+35,Portafolio de Quimica,Inversiones en la industria quimica y farmaceutica,2025-02-19
+36,Portafolio de Recursos Naturales,Enfocado en la explotacion de recursos naturales,2025-03-16
+37,Portafolio de Logistica,Inversiones en empresas de logistica y distribucion,2025-01-23
+38,Portafolio de Inteligencia Artificial,Concentrado en empresas de IA y tecnologia avanzada,2025-02-15
+39,Portafolio de Ciberseguridad,Inversiones en el sector de seguridad informatica,2025-03-04
+40,Portafolio de Blockchain,Enfocado en empresas que utilizan tecnologia blockchain,2025-01-28
+41,Portafolio de Energias Renovables,Inversiones en energias limpias y renovables,2025-02-21
+42,Portafolio de Biotecnologia,Concentrado en empresas de biotecnologia,2025-03-03
+43,Portafolio de Deportes,Inversiones en la industria deportiva,2025-01-24
+44,Portafolio de Arte,Enfocado en inversiones en obras de arte y coleccionables,2025-02-13
+45,Portafolio de Franquicias,Inversiones en modelos de negocio franquiciados,2025-03-02
+46,Portafolio de Seguros,Concentrado en empresas aseguradoras,2025-01-31
+47,Portafolio de Servicios Profesionales,Inversiones en consultorias y servicios profesionales,2025-02-17
+48,Portafolio de Manufactura,Enfocado en el sector manufacturero,2025-03-01
+49,Portafolio de Recursos Humanos,Inversiones en empresas de gestion de talento,2025-01-16
+50,Portafolio de Sostenibilidad,Concentrado en inversiones socialmente responsables,2025-02-26

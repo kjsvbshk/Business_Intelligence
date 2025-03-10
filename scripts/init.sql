@@ -1,245 +1,350 @@
--- Crear la base de datos si no existe
-CREATE DATABASE IF NOT EXISTS inversiones_db;
-USE inversiones_db;
+-- Creacion de la base de datos (si no existe)
+CREATE DATABASE IF NOT EXISTS rentabilidad;
+USE rentabilidad;
 
--- 1. Tabla de Clientes
-CREATE TABLE IF NOT EXISTS Clientes (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(255) NOT NULL,
-    Correo VARCHAR(100) NOT NULL,
-    Telefono VARCHAR(20),
-    Direccion VARCHAR(255)
-);
-
--- 2. Tabla de Productos
-CREATE TABLE IF NOT EXISTS Productos (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(255) NOT NULL,
-    Categoria VARCHAR(100) NOT NULL,
-    Precio DECIMAL(15, 2) NOT NULL,
-    Costo DECIMAL(15, 2) NOT NULL
-);
-
--- 3. Tabla de Ventas
-CREATE TABLE IF NOT EXISTS Ventas (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Fecha DATE NOT NULL,
-    Cliente_ID INT NOT NULL,
-    Total DECIMAL(15, 2) NOT NULL,
-    FOREIGN KEY (Cliente_ID) REFERENCES Clientes(ID)
-);
-
--- 4. Tabla de Detalle_Ventas
-CREATE TABLE IF NOT EXISTS Detalle_Ventas (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Venta_ID INT NOT NULL,
-    Producto_ID INT NOT NULL,
-    Cantidad INT NOT NULL,
-    Precio_Unitario DECIMAL(15, 2) NOT NULL,
-    FOREIGN KEY (Venta_ID) REFERENCES Ventas(ID),
-    FOREIGN KEY (Producto_ID) REFERENCES Productos(ID)
-);
-
--- 5. Tabla de Metodos_Pago
-CREATE TABLE IF NOT EXISTS Metodos_Pago (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Metodo VARCHAR(50) NOT NULL,
-    Descripcion VARCHAR(255),
-    Codigos VARCHAR(10)
-);
-
--- 6. Tabla de Inventario
-CREATE TABLE IF NOT EXISTS Inventario (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Producto_ID INT NOT NULL,
-    Cantidad_Disponible INT NOT NULL,
-    Ubicacion VARCHAR(100),
-    FOREIGN KEY (Producto_ID) REFERENCES Productos(ID)
-);
-
--- 7. Tabla de Proveedores
-CREATE TABLE IF NOT EXISTS Proveedores (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(255) NOT NULL,
-    Contacto VARCHAR(100),
-    Direccion VARCHAR(255)
-);
-
--- 8. Tabla de Compras
-CREATE TABLE IF NOT EXISTS Compras (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Fecha DATE NOT NULL,
-    Proveedor_ID INT NOT NULL,
-    Total DECIMAL(15, 2) NOT NULL,
-    FOREIGN KEY (Proveedor_ID) REFERENCES Proveedores(ID)
-);
-
--- 9. Tabla de Detalle_Compras
-CREATE TABLE IF NOT EXISTS Detalle_Compras (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Compra_ID INT NOT NULL,
-    Producto_ID INT NOT NULL,
-    Cantidad INT NOT NULL,
-    Precio_Unitario DECIMAL(15, 2) NOT NULL,
-    FOREIGN KEY (Compra_ID) REFERENCES Compras(ID),
-    FOREIGN KEY (Producto_ID) REFERENCES Productos(ID)
-);
-
--- 10. Tabla de Movimientos_Inventario
-CREATE TABLE IF NOT EXISTS Movimientos_Inventario (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Producto_ID INT NOT NULL,
-    Tipo_Movimiento ENUM('Entrada', 'Salida') NOT NULL,
-    Cantidad INT NOT NULL,
-    Fecha DATE NOT NULL,
-    FOREIGN KEY (Producto_ID) REFERENCES Productos(ID)
-);
-
--- 11. Tabla de Campañas
-CREATE TABLE IF NOT EXISTS Campanas (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(255) NOT NULL,
-    Fecha_Inicio DATE NOT NULL,
-    Fecha_Fin DATE NOT NULL,
-    Presupuesto DECIMAL(15, 2) NOT NULL
-);
-
--- 12. Tabla de Canales_Marketing
-CREATE TABLE IF NOT EXISTS Canales_Marketing (
+-- Tabla: Usuarios
+CREATE TABLE Usuarios (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(100) NOT NULL,
-    Tipo VARCHAR(50) NOT NULL
+    Email VARCHAR(100) NOT NULL UNIQUE,
+    Fecha_Registro DATE NOT NULL
 );
+-- Cargar datos en la tabla Usuarios
+LOAD DATA INFILE '../data/usuarios.csv'
+INTO TABLE Usuarios
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
 
--- 13. Tabla de Leads
-CREATE TABLE IF NOT EXISTS Leads (
+-- Tabla: Tipos_Inversion
+CREATE TABLE Tipos_Inversion (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(255) NOT NULL,
-    Correo VARCHAR(100) NOT NULL,
-    Canal_ID INT NOT NULL,
-    Fecha_Registro DATE NOT NULL,
-    FOREIGN KEY (Canal_ID) REFERENCES Canales_Marketing(ID)
+    Nombre VARCHAR(50) NOT NULL UNIQUE
 );
+-- Cargar datos en la tabla Tipos_Inversion
+LOAD DATA INFILE '../data/tipos_inversion.csv'
+INTO TABLE Tipos_Inversion
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
 
--- 14. Tabla de Conversiones
-CREATE TABLE IF NOT EXISTS Conversiones (
+
+-- Tabla: Tipos_Riesgo
+CREATE TABLE Tipos_Riesgo (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    Lead_ID INT NOT NULL,
-    Fecha_Conversion DATE NOT NULL,
-    Monto DECIMAL(15, 2) NOT NULL,
-    FOREIGN KEY (Lead_ID) REFERENCES Leads(ID)
+    Nivel VARCHAR(20) NOT NULL UNIQUE
 );
+-- Cargar datos en la tabla Tipos_Riesgo
+LOAD DATA INFILE '../data/tipos_riesgo.csv'
+INTO TABLE Tipos_Riesgo
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
 
--- 15. Tabla de Gastos_Marketing
-CREATE TABLE IF NOT EXISTS Gastos_Marketing (
+-- Tabla: Tipos_Gasto
+CREATE TABLE Tipos_Gasto (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    Campana_ID INT NOT NULL,
-    Monto DECIMAL(15, 2) NOT NULL,
-    Fecha DATE NOT NULL,
-    FOREIGN KEY (Campana_ID) REFERENCES Campanas(ID)
-);
-
--- 16. Tabla de Empleados
-CREATE TABLE IF NOT EXISTS Empleados (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(255) NOT NULL,
-    Puesto VARCHAR(100) NOT NULL,
-    Departamento VARCHAR(100) NOT NULL,
-    Salario DECIMAL(15, 2) NOT NULL
-);
-
--- 17. Tabla de Asistencias
-CREATE TABLE IF NOT EXISTS Asistencias (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Empleado_ID INT NOT NULL,
-    Fecha DATE NOT NULL,
-    Hora_Entrada TIME NOT NULL,
-    Hora_Salida TIME NOT NULL,
-    FOREIGN KEY (Empleado_ID) REFERENCES Empleados(ID)
-);
-
--- 18. Tabla de Evaluaciones
-CREATE TABLE IF NOT EXISTS Evaluaciones (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Empleado_ID INT NOT NULL,
-    Fecha DATE NOT NULL,
-    Calificacion DECIMAL(5, 2) NOT NULL,
-    Comentarios TEXT,
-    FOREIGN KEY (Empleado_ID) REFERENCES Empleados(ID)
-);
-
--- 19. Tabla de Capacitaciones
-CREATE TABLE IF NOT EXISTS Capacitaciones (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(255) NOT NULL,
-    Fecha DATE NOT NULL,
-    Empleado_ID INT NOT NULL,
-    FOREIGN KEY (Empleado_ID) REFERENCES Empleados(ID)
-);
-
--- 20. Tabla de Gastos_Nomina
-CREATE TABLE IF NOT EXISTS Gastos_Nomina (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Empleado_ID INT NOT NULL,
-    Monto DECIMAL(15, 2) NOT NULL,
-    Fecha DATE NOT NULL,
-    FOREIGN KEY (Empleado_ID) REFERENCES Empleados(ID)
-);
-
--- 21. Tabla de Gastos
-CREATE TABLE IF NOT EXISTS Gastos (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Tipo VARCHAR(100) NOT NULL,
-    Monto DECIMAL(15, 2) NOT NULL,
-    Fecha DATE NOT NULL,
+    Nombre VARCHAR(50) NOT NULL UNIQUE,
     Descripcion TEXT
 );
+-- Cargar datos en la tabla Tipos_Gasto
+LOAD DATA INFILE '../data/tipos_gasto.csv'
+INTO TABLE Tipos_Gasto
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
 
--- 22. Tabla de Ingresos
-CREATE TABLE IF NOT EXISTS Ingresos (
+-- Tabla: Categorias_Activos
+CREATE TABLE Categorias_Activos (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    Tipo VARCHAR(100) NOT NULL,
-    Monto DECIMAL(15, 2) NOT NULL,
-    Fecha DATE NOT NULL,
-    Descripcion TEXT
+    Nombre VARCHAR(50) NOT NULL UNIQUE
 );
+-- Cargar datos en la tabla Categorias_Activos
+LOAD DATA INFILE '../data/categorias_activos.csv'
+INTO TABLE Categorias_Activos
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
 
--- 23. Tabla de Impuestos
-CREATE TABLE IF NOT EXISTS Impuestos (
+-- Tabla: Monedas
+CREATE TABLE Monedas (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    Tipo VARCHAR(100) NOT NULL,
-    Monto DECIMAL(15, 2) NOT NULL,
-    Fecha DATE NOT NULL
+    Codigo CHAR(3) NOT NULL UNIQUE,
+    Nombre VARCHAR(50) NOT NULL
+);
+-- Cargar datos en la tabla Monedas
+LOAD DATA INFILE './data/monedas.csv'
+INTO TABLE Monedas
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Tabla: Portafolios
+CREATE TABLE Portafolios (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Usuario_ID INT NOT NULL,
+    Nombre VARCHAR(100) NOT NULL,
+    Descripcion TEXT,
+    Fecha_Creacion DATE NOT NULL,
+    FOREIGN KEY (Usuario_ID) REFERENCES Usuarios(ID)
+);
+-- Cargar datos en la tabla Portafolios
+LOAD DATA INFILE './data/portafolios.csv'
+INTO TABLE Portafolios
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+
+-- Tabla: Inversiones
+CREATE TABLE Inversiones (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(100) NOT NULL,
+    Tipo_ID INT NOT NULL,
+    Fecha_Inicio DATE NOT NULL,
+    Monto_Inicial DECIMAL(15, 2) NOT NULL CHECK (Monto_Inicial >= 0),
+    Riesgo_ID INT NOT NULL,
+    Usuario_ID INT NOT NULL,
+    Descripcion TEXT,
+    Moneda_ID INT,
+    Categoria_ID INT,
+    FOREIGN KEY (Tipo_ID) REFERENCES Tipos_Inversion(ID),
+    FOREIGN KEY (Riesgo_ID) REFERENCES Tipos_Riesgo(ID),
+    FOREIGN KEY (Usuario_ID) REFERENCES Usuarios(ID),
+    FOREIGN KEY (Moneda_ID) REFERENCES Monedas(ID),
+    FOREIGN KEY (Categoria_ID) REFERENCES Categorias_Activos(ID)
+);
+-- Cargar datos en la tabla Inversiones
+LOAD DATA INFILE './data/inversiones.csv'
+INTO TABLE Inversiones
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Tabla: Rendimientos
+CREATE TABLE Rendimientos (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Inversion_ID INT NOT NULL,
+    Fecha DATE NOT NULL,
+    Rendimiento_Porcentual DECIMAL(5, 2) NOT NULL,
+    Rendimiento_Monetario DECIMAL(15, 2) NOT NULL,
+    FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID)
 );
 
--- 24. Tabla de Balance_General
-CREATE TABLE IF NOT EXISTS Balance_General (
+-- Tabla: Mercado
+CREATE TABLE Mercado (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Fecha DATE NOT NULL,
-    Activos DECIMAL(15, 2) NOT NULL,
-    Pasivos DECIMAL(15, 2) NOT NULL,
-    Patrimonio DECIMAL(15, 2) NOT NULL
+    Indice_Mercado DECIMAL(10, 2) NOT NULL,
+    Volatilidad DECIMAL(5, 2) NOT NULL CHECK (Volatilidad >= 0)
 );
 
--- 25. Tabla de Flujo_Caja
-CREATE TABLE Flujo_Caja (
-    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+-- Tabla: Gastos_Inversion
+CREATE TABLE Gastos_Inversion (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Inversion_ID INT NOT NULL,
+    Tipo_Gasto_ID INT NOT NULL,
+    Monto DECIMAL(15, 2) NOT NULL CHECK (Monto >= 0),
     Fecha DATE NOT NULL,
-    Nombre_Tabla ENUM('Ingresos', 'Gastos', 'Ventas', 'Compras', 'Gastos_Nomina', 'Impuestos') NOT NULL,
-    Entradas DECIMAL(15,2) NOT NULL DEFAULT 0.00,
-    Salidas DECIMAL(15,2) NOT NULL DEFAULT 0.00,
-    Total DECIMAL(15,2) NOT NULL DEFAULT 0.00,
-    Ingreso_ID INT DEFAULT NULL,
-    Gasto_ID INT DEFAULT NULL,
-    Venta_ID INT DEFAULT NULL,
-    Compra_ID INT DEFAULT NULL,
-    Gastos_Nomina_ID INT DEFAULT NULL,
-    Impuesto_ID INT DEFAULT NULL,
-
-    FOREIGN KEY (Ingreso_ID) REFERENCES Ingresos(ID) ON DELETE SET NULL,
-    FOREIGN KEY (Gasto_ID) REFERENCES Gastos(ID) ON DELETE SET NULL,
-    FOREIGN KEY (Venta_ID) REFERENCES Ventas(ID) ON DELETE SET NULL,
-    FOREIGN KEY (Compra_ID) REFERENCES Compras(ID) ON DELETE SET NULL,
-    FOREIGN KEY (Gastos_Nomina_ID) REFERENCES Gastos_Nomina(ID) ON DELETE SET NULL,
-    FOREIGN KEY (Impuesto_ID) REFERENCES Impuestos(ID) ON DELETE SET NULL
+    FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID),
+    FOREIGN KEY (Tipo_Gasto_ID) REFERENCES Tipos_Gasto(ID)
 );
+
+-- Tabla: Diversificacion
+CREATE TABLE Diversificacion (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Portafolio_ID INT NOT NULL,
+    Inversion_ID INT NOT NULL,
+    Porcentaje_Asignado DECIMAL(5, 2) NOT NULL CHECK (Porcentaje_Asignado BETWEEN 0 AND 100),
+    FOREIGN KEY (Portafolio_ID) REFERENCES Portafolios(ID),
+    FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID)
+);
+
+-- Tabla: Portafolio_Inversion
+CREATE TABLE Portafolio_Inversion (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Portafolio_ID INT NOT NULL,
+    Inversion_ID INT NOT NULL,
+    FOREIGN KEY (Portafolio_ID) REFERENCES Portafolios(ID),
+    FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID)
+);
+
+
+-- Tabla: Inversion_Categoria
+CREATE TABLE Inversion_Categoria (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Inversion_ID INT NOT NULL,
+    Categoria_ID INT NOT NULL,
+    FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID),
+    FOREIGN KEY (Categoria_ID) REFERENCES Categorias_Activos(ID)
+);
+
+
+-- Tabla: Inversion_Moneda
+CREATE TABLE Inversion_Moneda (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Inversion_ID INT NOT NULL,
+    Moneda_ID INT NOT NULL,
+    FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID),
+    FOREIGN KEY (Moneda_ID) REFERENCES Monedas(ID)
+);
+
+-- Tabla: Analisis_Portafolio
+CREATE TABLE Analisis_Portafolio (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Portafolio_ID INT NOT NULL,
+    Fecha DATE NOT NULL,
+    ROI DECIMAL(5, 2) NOT NULL,
+    Rentabilidad_Anualizada DECIMAL(5, 2) NOT NULL,
+    Ratio_Sharpe DECIMAL(5, 2) NOT NULL,
+    FOREIGN KEY (Portafolio_ID) REFERENCES Portafolios(ID)
+);
+
+-- Tabla: Reportes_Riesgo
+CREATE TABLE Reportes_Riesgo (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Portafolio_ID INT NOT NULL,
+    Fecha DATE NOT NULL,
+    Volatilidad DECIMAL(5, 2) NOT NULL,
+    Riesgo_Total DECIMAL(5, 2) NOT NULL,
+    FOREIGN KEY (Portafolio_ID) REFERENCES Portafolios(ID)
+);
+
+-- Tabla: Historico_Rendimientos
+CREATE TABLE Historico_Rendimientos (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Inversion_ID INT NOT NULL,
+    Fecha DATE NOT NULL,
+    Rendimiento_Porcentual DECIMAL(5, 2) NOT NULL,
+    Rendimiento_Monetario DECIMAL(15, 2) NOT NULL,
+    FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID)
+);
+
+-- Tabla: Historico_Mercado
+CREATE TABLE Historico_Mercado (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Fecha DATE NOT NULL,
+    Indice_Mercado DECIMAL(10, 2) NOT NULL,
+    Volatilidad DECIMAL(5, 2) NOT NULL CHECK (Volatilidad >= 0)
+);
+
+-- Tabla: Historico_Gastos
+CREATE TABLE Historico_Gastos (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Inversion_ID INT NOT NULL,
+    Fecha DATE NOT NULL,
+    Tipo_Gasto_ID INT NOT NULL,
+    Monto DECIMAL(15, 2) NOT NULL CHECK (Monto >= 0),
+    FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID),
+    FOREIGN KEY (Tipo_Gasto_ID) REFERENCES Tipos_Gasto(ID)
+);
+
+-- Tabla: Estrategias
+CREATE TABLE Estrategias (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(50) NOT NULL UNIQUE
+);
+
+-- Tabla: Rebalanceo
+CREATE TABLE Rebalanceo (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Portafolio_ID INT NOT NULL,
+    Fecha DATE NOT NULL,
+    Inversion_ID INT NOT NULL,
+    Porcentaje_Anterior DECIMAL(5, 2) NOT NULL CHECK (Porcentaje_Anterior BETWEEN 0 AND 100),
+    Porcentaje_Nuevo DECIMAL(5, 2) NOT NULL CHECK (Porcentaje_Nuevo BETWEEN 0 AND 100),
+    FOREIGN KEY (Portafolio_ID) REFERENCES Portafolios(ID),
+    FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID)
+);
+
+-- Tabla: Optimizacion
+CREATE TABLE Optimizacion (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Portafolio_ID INT NOT NULL,
+    Fecha DATE NOT NULL,
+    ROI_Objetivo DECIMAL(5, 2) NOT NULL,
+    Riesgo_Maximo DECIMAL(5, 2) NOT NULL,
+    FOREIGN KEY (Portafolio_ID) REFERENCES Portafolios(ID)
+);
+
+-- Tabla: Log_Cambios
+CREATE TABLE Log_Cambios (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Tabla_Afectada VARCHAR(50) NOT NULL,
+    Registro_ID INT NOT NULL,
+    Usuario_ID INT NOT NULL,
+    Fecha DATETIME NOT NULL,
+    Accion VARCHAR(10) NOT NULL CHECK (Accion IN ('INSERT', 'UPDATE', 'DELETE')),
+    FOREIGN KEY (Usuario_ID) REFERENCES Usuarios(ID)
+);
+
+-- Tabla: Backup_Inversiones
+CREATE TABLE Backup_Inversiones (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Inversion_ID INT NOT NULL,
+    Nombre VARCHAR(100) NOT NULL,
+    Tipo_ID INT NOT NULL,
+    Fecha_Inicio DATE NOT NULL,
+    Monto_Inicial DECIMAL(15, 2) NOT NULL CHECK (Monto_Inicial >= 0),
+    Riesgo_ID INT NOT NULL,
+    Usuario_ID INT NOT NULL,
+    Fecha_Backup DATETIME NOT NULL
+);
+
+-- Tabla: Backup_Rendimientos
+CREATE TABLE Backup_Rendimientos (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Rendimiento_ID INT NOT NULL,
+    Inversion_ID INT NOT NULL,
+    Fecha DATE NOT NULL,
+    Rendimiento_Porcentual DECIMAL(5, 2) NOT NULL,
+    Rendimiento_Monetario DECIMAL(15, 2) NOT NULL,
+    Fecha_Backup DATETIME NOT NULL
+);
+
+-- Índices para optimizacion
+CREATE INDEX idx_inversiones_tipo ON Inversiones(Tipo_ID);
+CREATE INDEX idx_inversiones_riesgo ON Inversiones(Riesgo_ID);
+CREATE INDEX idx_inversiones_usuario ON Inversiones(Usuario_ID);
+CREATE INDEX idx_rendimientos_inversion ON Rendimientos(Inversion_ID);
+CREATE INDEX idx_rendimientos_fecha ON Rendimientos(Fecha);
+CREATE INDEX idx_gastos_inversion ON Gastos_Inversion(Inversion_ID);
+CREATE INDEX idx_gastos_tipo ON Gastos_Inversion(Tipo_Gasto_ID);
+CREATE INDEX idx_diversificacion_portafolio ON Diversificacion(Portafolio_ID);
+CREATE INDEX idx_diversificacion_inversion ON Diversificacion(Inversion_ID);
+
+-- Triggers para validaciones
+DELIMITER //
+CREATE TRIGGER valida_fecha_rendimiento
+BEFORE INSERT ON Rendimientos
+FOR EACH ROW
+BEGIN
+    DECLARE fecha_inicio DATE;
+    SELECT Fecha_Inicio INTO fecha_inicio FROM Inversiones WHERE ID = NEW.Inversion_ID;
+    IF NEW.Fecha < fecha_inicio THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La fecha del rendimiento no puede ser anterior a la fecha de inicio de la inversion.';
+    END IF;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER valida_fecha_gasto
+BEFORE INSERT ON Gastos_Inversion
+FOR EACH ROW
+BEGIN
+    DECLARE fecha_inicio DATE;
+    SELECT Fecha_Inicio INTO fecha_inicio FROM Inversiones WHERE ID = NEW.Inversion_ID;
+    IF NEW.Fecha < fecha_inicio THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La fecha del gasto no puede ser anterior a la fecha de inicio de la inversion.';
+    END IF;
+END //
+DELIMITER ;
+

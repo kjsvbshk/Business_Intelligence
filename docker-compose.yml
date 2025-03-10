@@ -1,20 +1,22 @@
 services:
   db:
     image: mysql:8.0
-    container_name: mysql_db
+    container_name: rentabilidad_db
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: inversiones_db
+      MYSQL_ROOT_PASSWORD: rootpassword  # Cambia esto por una contraseña segura
+      MYSQL_DATABASE: rentabilidad
       MYSQL_USER: admin
-      MYSQL_PASSWORD: admin
+      MYSQL_PASSWORD: admin  # Cambia esto por una contraseña segura
     ports:
-      - "3306:3306"
+      - "3306:3306"  # Expone el puerto 3306 para conexiones externas
     volumes:
-      - ./db-data:/var/lib/mysql
-      - ./scripts:/docker-entrypoint-initdb.d
+      - ./db-data:/var/lib/mysql  # Volumen para persistir los datos de MySQL
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql  # Monta el archivo init.sql
+      - ./scripts/data:/data  # Volumen para persistir los datos de la aplicacion
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf
     networks:
-      - inversiones_network
+      - rentabilidad_network
 
 networks:
-  inversiones_network:
+  rentabilidad_network:
     driver: bridge
