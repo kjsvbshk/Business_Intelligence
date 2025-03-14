@@ -15,7 +15,8 @@ INTO TABLE Usuarios
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+IGNORE 1 ROWS
+(Nombre, Email, Fecha_Registro);
 
 -- Tabla: Tipos_Inversion
 CREATE TABLE Tipos_Inversion (
@@ -28,7 +29,8 @@ INTO TABLE Tipos_Inversion
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+IGNORE 1 ROWS
+(Nombre);
 
 
 -- Tabla: Tipos_Riesgo
@@ -42,7 +44,8 @@ INTO TABLE Tipos_Riesgo
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+IGNORE 1 ROWS
+(Nivel);
 
 -- Tabla: Tipos_Gasto
 CREATE TABLE Tipos_Gasto (
@@ -56,7 +59,8 @@ INTO TABLE Tipos_Gasto
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+IGNORE 1 ROWS
+(Nombre, Descripcion);
 
 -- Tabla: Categorias_Activos
 CREATE TABLE Categorias_Activos (
@@ -69,7 +73,8 @@ INTO TABLE Categorias_Activos
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+IGNORE 1 ROWS
+(Nombre);
 
 -- Tabla: Monedas
 CREATE TABLE Monedas (
@@ -83,7 +88,8 @@ INTO TABLE Monedas
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+IGNORE 1 ROWS
+(Codigo, Nombre);
 
 -- Tabla: Portafolios
 CREATE TABLE Portafolios (
@@ -100,7 +106,8 @@ INTO TABLE Portafolios
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+IGNORE 1 ROWS
+(Usuario_ID, Nombre, Descripcion, Fecha_Creacion);
 
 
 -- Tabla: Inversiones
@@ -127,7 +134,8 @@ INTO TABLE Inversiones
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+IGNORE 1 ROWS
+(Nombre, Tipo_ID, Fecha_Inicio, Monto_Inicial, Riesgo_ID, Usuario_ID, Descripcion, Moneda_ID, Categoria_ID);
 
 -- Tabla: Rendimientos
 CREATE TABLE Rendimientos (
@@ -138,6 +146,13 @@ CREATE TABLE Rendimientos (
     Rendimiento_Monetario DECIMAL(15, 2) NOT NULL,
     FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID)
 );
+LOAD DATA INFILE '/data/rendimientos.csv'
+INTO TABLE Rendimientos
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(Inversion_ID, Fecha, Rendimiento_Porcentual, Rendimiento_Monetario);
 
 -- Tabla: Mercado
 CREATE TABLE Mercado (
@@ -146,6 +161,14 @@ CREATE TABLE Mercado (
     Indice_Mercado DECIMAL(10, 2) NOT NULL,
     Volatilidad DECIMAL(5, 2) NOT NULL CHECK (Volatilidad >= 0)
 );
+-- Cargar datos en la tabla Mercado
+LOAD DATA INFILE './data/mercado.csv'
+INTO TABLE Mercado
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(Fecha, Indice_Mercado, Volatilidad);
 
 -- Tabla: Gastos_Inversion
 CREATE TABLE Gastos_Inversion (
@@ -157,6 +180,14 @@ CREATE TABLE Gastos_Inversion (
     FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID),
     FOREIGN KEY (Tipo_Gasto_ID) REFERENCES Tipos_Gasto(ID)
 );
+-- Cargar datos en la tabla Gastos_Inversion
+LOAD DATA INFILE './data/gastos_inversion.csv'
+INTO TABLE Gastos_Inversion
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(Inversion_ID, Tipo_Gasto_ID, Monto, Fecha);
 
 -- Tabla: Diversificacion
 CREATE TABLE Diversificacion (
@@ -167,6 +198,14 @@ CREATE TABLE Diversificacion (
     FOREIGN KEY (Portafolio_ID) REFERENCES Portafolios(ID),
     FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID)
 );
+-- Cargar datos en la tabla Diversificacion
+LOAD DATA INFILE './data/diversificacion.csv'
+INTO TABLE Diversificacion
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(Portafolio_ID, Inversion_ID, Porcentaje_Asignado);
 
 -- Tabla: Portafolio_Inversion
 CREATE TABLE Portafolio_Inversion (
@@ -176,7 +215,14 @@ CREATE TABLE Portafolio_Inversion (
     FOREIGN KEY (Portafolio_ID) REFERENCES Portafolios(ID),
     FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID)
 );
-
+-- Cargar datos en la tabla Portafolio_Inversion
+LOAD DATA INFILE './data/portafolio_inversion.csv'
+INTO TABLE Portafolio_Inversion
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(Portafolio_ID, Inversion_ID);
 
 -- Tabla: Inversion_Categoria
 CREATE TABLE Inversion_Categoria (
@@ -186,7 +232,14 @@ CREATE TABLE Inversion_Categoria (
     FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID),
     FOREIGN KEY (Categoria_ID) REFERENCES Categorias_Activos(ID)
 );
-
+-- Cargar datos en la tabla Inversion_Categoria
+LOAD DATA INFILE './data/inversion_categoria.csv'
+INTO TABLE Inversion_Categoria
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(Inversion_ID, Categoria_ID);
 
 -- Tabla: Inversion_Moneda
 CREATE TABLE Inversion_Moneda (
@@ -196,6 +249,14 @@ CREATE TABLE Inversion_Moneda (
     FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID),
     FOREIGN KEY (Moneda_ID) REFERENCES Monedas(ID)
 );
+-- Cargar datos en la tabla Inversion_Moneda
+LOAD DATA INFILE './data/inversion_moneda.csv'
+INTO TABLE Inversion_Moneda
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(Inversion_ID, Moneda_ID);
 
 -- Tabla: Analisis_Portafolio
 CREATE TABLE Analisis_Portafolio (
@@ -207,6 +268,14 @@ CREATE TABLE Analisis_Portafolio (
     Ratio_Sharpe DECIMAL(5, 2) NOT NULL,
     FOREIGN KEY (Portafolio_ID) REFERENCES Portafolios(ID)
 );
+-- Cargar datos en la tabla Analisis_Portafolio
+LOAD DATA INFILE './data/analisis_portafolio.csv'
+INTO TABLE Analisis_Portafolio
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(Portafolio_ID, Fecha, ROI, Rentabilidad_Anualizada, Ratio_Sharpe);
 
 -- Tabla: Reportes_Riesgo
 CREATE TABLE Reportes_Riesgo (
@@ -217,6 +286,14 @@ CREATE TABLE Reportes_Riesgo (
     Riesgo_Total DECIMAL(5, 2) NOT NULL,
     FOREIGN KEY (Portafolio_ID) REFERENCES Portafolios(ID)
 );
+-- Cargar datos en la tabla Reportes_Riesgo
+LOAD DATA INFILE './data/reportes_riesgo.csv'
+INTO TABLE Reportes_Riesgo
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(Portafolio_ID, Fecha, Volatilidad, Riesgo_Total);
 
 -- Tabla: Historico_Rendimientos
 CREATE TABLE Historico_Rendimientos (
@@ -227,6 +304,14 @@ CREATE TABLE Historico_Rendimientos (
     Rendimiento_Monetario DECIMAL(15, 2) NOT NULL,
     FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID)
 );
+-- Cargar datos en la tabla Historico_Rendimientos
+LOAD DATA INFILE './data/historico_rendimientos.csv'
+INTO TABLE Historico_Rendimientos
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(Inversion_ID, Fecha, Rendimiento_Porcentual, Rendimiento_Monetario);
 
 -- Tabla: Historico_Mercado
 CREATE TABLE Historico_Mercado (
@@ -235,6 +320,14 @@ CREATE TABLE Historico_Mercado (
     Indice_Mercado DECIMAL(10, 2) NOT NULL,
     Volatilidad DECIMAL(5, 2) NOT NULL CHECK (Volatilidad >= 0)
 );
+-- Cargar datos en la tabla Historico_Mercado
+LOAD DATA INFILE './data/historico_mercado.csv'
+INTO TABLE Historico_Mercado
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(Fecha, Indice_Mercado, Volatilidad);
 
 -- Tabla: Historico_Gastos
 CREATE TABLE Historico_Gastos (
@@ -246,12 +339,28 @@ CREATE TABLE Historico_Gastos (
     FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID),
     FOREIGN KEY (Tipo_Gasto_ID) REFERENCES Tipos_Gasto(ID)
 );
+-- Cargar datos en la tabla Historico_Gastos
+LOAD DATA INFILE './data/historico_gastos.csv'
+INTO TABLE Historico_Gastos
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(Inversion_ID, Fecha, Tipo_Gasto_ID, Monto);
 
 -- Tabla: Estrategias
 CREATE TABLE Estrategias (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(50) NOT NULL UNIQUE
 );
+-- Cargar datos en la tabla Estrategias
+LOAD DATA INFILE './data/estrategias.csv'
+INTO TABLE Estrategias
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(Nombre);
 
 -- Tabla: Rebalanceo
 CREATE TABLE Rebalanceo (
@@ -264,6 +373,14 @@ CREATE TABLE Rebalanceo (
     FOREIGN KEY (Portafolio_ID) REFERENCES Portafolios(ID),
     FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID)
 );
+-- Cargar datos en la tabla Rebalanceo
+LOAD DATA INFILE './data/rebalanceo.csv'
+INTO TABLE Rebalanceo
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(Portafolio_ID, Fecha, Inversion_ID, Porcentaje_Anterior, Porcentaje_Nuevo);
 
 -- Tabla: Optimizacion
 CREATE TABLE Optimizacion (
@@ -274,6 +391,14 @@ CREATE TABLE Optimizacion (
     Riesgo_Maximo DECIMAL(5, 2) NOT NULL,
     FOREIGN KEY (Portafolio_ID) REFERENCES Portafolios(ID)
 );
+-- Cargar datos en la tabla Optimizacion
+LOAD DATA INFILE './data/optimizacion.csv'
+INTO TABLE Optimizacion
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(Portafolio_ID, Fecha, ROI_Objetivo, Riesgo_Maximo);
 
 -- Tabla: Log_Cambios
 CREATE TABLE Log_Cambios (
@@ -285,6 +410,14 @@ CREATE TABLE Log_Cambios (
     Accion VARCHAR(10) NOT NULL CHECK (Accion IN ('INSERT', 'UPDATE', 'DELETE')),
     FOREIGN KEY (Usuario_ID) REFERENCES Usuarios(ID)
 );
+-- Cargar datos en la tabla Log_Cambios
+LOAD DATA INFILE './data/log_cambios.csv'
+INTO TABLE Log_Cambios
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(Tabla_Afectada, Registro_ID, Usuario_ID, Fecha, Accion);
 
 -- Tabla: Backup_Inversiones
 CREATE TABLE Backup_Inversiones (
