@@ -1,17 +1,16 @@
 services:
-  mysql:
+  db:
     image: mysql:8.0
     container_name: rentabilidad_db
-    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword  # Cambia esto por una contraseña segura
       MYSQL_DATABASE: rentabilidad
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin  # Cambia esto por una contraseña segura
-    command: --secure-file-priv="" --local-infile=1 # Habilita la carga de archivos locales
     ports:
       - "3306:3306"  # Expone el puerto 3306 para conexiones externas
     volumes:
       - ./db-data:/var/lib/mysql  # Volumen para persistir los datos de MySQL
       - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql  # Monta el archivo init.sql
       - ./scripts/data:/data  # Volumen para persistir los datos de la aplicacion
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf
