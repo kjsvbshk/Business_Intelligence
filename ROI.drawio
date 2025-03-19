@@ -7,31 +7,31 @@
         <mxCell id="1" parent="0" />
         
         <!-- Tabla de hechos: Hechos_ROI -->
-        <mxCell id="Hechos_ROI" value="&lt;b&gt;Hechos_ROI&lt;/b&gt;&#xa; - Inversion_ID: INT (PK)&#xa; - Fecha: DATE&#xa; - Monto_Invertido: DECIMAL&#xa; - Monto_Retornado: DECIMAL&#xa; - ROI: DECIMAL" 
+        <mxCell id="Hechos_ROI" value="Hechos_ROI\n---------------------\nInversion_ID: INT (PK)\nFecha: DATE\nMonto_Invertido: DECIMAL\nMonto_Retornado: DECIMAL\nROI: DECIMAL" 
           style="swimlane;fontStyle=1;fillColor=#F8CECC;strokeColor=#B85450" vertex="1" parent="1">
           <mxGeometry x="300" y="150" width="200" height="140" as="geometry" />
         </mxCell>
 
         <!-- Dim_Tiempo -->
-        <mxCell id="Dim_Tiempo" value="&lt;b&gt;Dim_Tiempo&lt;/b&gt;&#xa; - Fecha_ID: INT (PK)&#xa; - Año: INT&#xa; - Mes: INT&#xa; - Día: INT" 
+        <mxCell id="Dim_Tiempo" value="Dim_Tiempo\n---------------------\nFecha_ID: INT (PK)\nAño: INT\nMes: INT\nDía: INT" 
           style="swimlane;fontStyle=1;fillColor=#D5E8D4;strokeColor=#82B366" vertex="1" parent="1">
           <mxGeometry x="50" y="50" width="180" height="100" as="geometry" />
         </mxCell>
 
         <!-- Dim_Tipo_Inversion -->
-        <mxCell id="Dim_Tipo_Inversion" value="&lt;b&gt;Dim_Tipo_Inversion&lt;/b&gt;&#xa; - TipoInversion_ID: INT (PK)&#xa; - Nombre: VARCHAR" 
+        <mxCell id="Dim_Tipo_Inversion" value="Dim_Tipo_Inversion\n---------------------\nTipoInversion_ID: INT (PK)\nNombre: VARCHAR" 
           style="swimlane;fontStyle=1;fillColor=#D5E8D4;strokeColor=#82B366" vertex="1" parent="1">
           <mxGeometry x="550" y="50" width="180" height="80" as="geometry" />
         </mxCell>
 
         <!-- Dim_Riesgo -->
-        <mxCell id="Dim_Riesgo" value="&lt;b&gt;Dim_Riesgo&lt;/b&gt;&#xa; - Riesgo_ID: INT (PK)&#xa; - Nivel_Riesgo: VARCHAR" 
+        <mxCell id="Dim_Riesgo" value="Dim_Riesgo\n---------------------\nRiesgo_ID: INT (PK)\nNivel_Riesgo: VARCHAR" 
           style="swimlane;fontStyle=1;fillColor=#D5E8D4;strokeColor=#82B366" vertex="1" parent="1">
           <mxGeometry x="50" y="300" width="180" height="80" as="geometry" />
         </mxCell>
 
         <!-- Dim_Usuario -->
-        <mxCell id="Dim_Usuario" value="&lt;b&gt;Dim_Usuario&lt;/b&gt;&#xa; - Usuario_ID: INT (PK)&#xa; - Nombre: VARCHAR&#xa; - Pais: VARCHAR" 
+        <mxCell id="Dim_Usuario" value="Dim_Usuario\n---------------------\nUsuario_ID: INT (PK)\nNombre: VARCHAR\nPais: VARCHAR" 
           style="swimlane;fontStyle=1;fillColor=#D5E8D4;strokeColor=#82B366" vertex="1" parent="1">
           <mxGeometry x="550" y="300" width="180" height="100" as="geometry" />
         </mxCell>
