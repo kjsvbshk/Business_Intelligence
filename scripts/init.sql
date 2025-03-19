@@ -9,8 +9,8 @@ CREATE TABLE Usuarios (
     Email VARCHAR(100) NOT NULL UNIQUE,
     Fecha_Registro DATE NOT NULL
 );
--- Cargar datos en la tabla Usuarios
-LOAD DATA INFILE '../data/usuarios.csv'
+-- -- Cargar datos en la tabla Usuarios
+LOAD DATA INFILE '/data/usuarios.csv'
 INTO TABLE Usuarios
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -23,8 +23,9 @@ CREATE TABLE Tipos_Inversion (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(50) NOT NULL UNIQUE
 );
--- Cargar datos en la tabla Tipos_Inversion
-LOAD DATA INFILE '../data/tipos_inversion.csv'
+
+-- -- Cargar datos en la tabla Tipos_Inversion
+LOAD DATA INFILE '/data/tipos_inversion.csv'
 INTO TABLE Tipos_Inversion
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -32,14 +33,13 @@ LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (Nombre);
 
-
 -- Tabla: Tipos_Riesgo
 CREATE TABLE Tipos_Riesgo (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Nivel VARCHAR(20) NOT NULL UNIQUE
 );
--- Cargar datos en la tabla Tipos_Riesgo
-LOAD DATA INFILE '../data/tipos_riesgo.csv'
+-- -- Cargar datos en la tabla Tipos_Riesgo
+LOAD DATA INFILE '/data/tipos_riesgo.csv'
 INTO TABLE Tipos_Riesgo
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -53,8 +53,8 @@ CREATE TABLE Tipos_Gasto (
     Nombre VARCHAR(50) NOT NULL UNIQUE,
     Descripcion TEXT
 );
--- Cargar datos en la tabla Tipos_Gasto
-LOAD DATA INFILE '../data/tipos_gasto.csv'
+-- -- Cargar datos en la tabla Tipos_Gasto
+LOAD DATA INFILE '/data/tipos_gasto.csv'
 INTO TABLE Tipos_Gasto
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -67,8 +67,8 @@ CREATE TABLE Categorias_Activos (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(50) NOT NULL UNIQUE
 );
--- Cargar datos en la tabla Categorias_Activos
-LOAD DATA INFILE '../data/categorias_activos.csv'
+-- -- Cargar datos en la tabla Categorias_Activos
+LOAD DATA INFILE '/data/categorias_activos.csv'
 INTO TABLE Categorias_Activos
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -82,8 +82,8 @@ CREATE TABLE Monedas (
     Codigo CHAR(3) NOT NULL UNIQUE,
     Nombre VARCHAR(50) NOT NULL
 );
--- Cargar datos en la tabla Monedas
-LOAD DATA INFILE './data/monedas.csv'
+-- -- Cargar datos en la tabla Monedas
+LOAD DATA INFILE '/data/monedas.csv'
 INTO TABLE Monedas
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -100,15 +100,15 @@ CREATE TABLE Portafolios (
     Fecha_Creacion DATE NOT NULL,
     FOREIGN KEY (Usuario_ID) REFERENCES Usuarios(ID)
 );
--- Cargar datos en la tabla Portafolios
-LOAD DATA INFILE './data/portafolios.csv'
+
+-- -- Cargar datos en la tabla Portafolios
+LOAD DATA INFILE '/data/portafolios.csv'
 INTO TABLE Portafolios
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (Usuario_ID, Nombre, Descripcion, Fecha_Creacion);
-
 
 -- Tabla: Inversiones
 CREATE TABLE Inversiones (
@@ -128,8 +128,9 @@ CREATE TABLE Inversiones (
     FOREIGN KEY (Moneda_ID) REFERENCES Monedas(ID),
     FOREIGN KEY (Categoria_ID) REFERENCES Categorias_Activos(ID)
 );
--- Cargar datos en la tabla Inversiones
-LOAD DATA INFILE './data/inversiones.csv'
+
+-- -- Cargar datos en la tabla Inversiones
+LOAD DATA INFILE '/data/inversiones.csv'
 INTO TABLE Inversiones
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -146,6 +147,8 @@ CREATE TABLE Rendimientos (
     Rendimiento_Monetario DECIMAL(15, 2) NOT NULL,
     FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID)
 );
+
+-- -- Cargar datos en la tabla Rendimientos
 LOAD DATA INFILE '/data/rendimientos.csv'
 INTO TABLE Rendimientos
 FIELDS TERMINATED BY ','
@@ -161,8 +164,9 @@ CREATE TABLE Mercado (
     Indice_Mercado DECIMAL(10, 2) NOT NULL,
     Volatilidad DECIMAL(5, 2) NOT NULL CHECK (Volatilidad >= 0)
 );
--- Cargar datos en la tabla Mercado
-LOAD DATA INFILE './data/mercado.csv'
+
+-- -- Cargar datos en la tabla Mercado
+LOAD DATA INFILE '/data/mercado.csv'
 INTO TABLE Mercado
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -180,8 +184,9 @@ CREATE TABLE Gastos_Inversion (
     FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID),
     FOREIGN KEY (Tipo_Gasto_ID) REFERENCES Tipos_Gasto(ID)
 );
--- Cargar datos en la tabla Gastos_Inversion
-LOAD DATA INFILE './data/gastos_inversion.csv'
+
+-- -- Cargar datos en la tabla Gastos_Inversion
+LOAD DATA INFILE '/data/gastos_inversion.csv'
 INTO TABLE Gastos_Inversion
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -198,8 +203,8 @@ CREATE TABLE Diversificacion (
     FOREIGN KEY (Portafolio_ID) REFERENCES Portafolios(ID),
     FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID)
 );
--- Cargar datos en la tabla Diversificacion
-LOAD DATA INFILE './data/diversificacion.csv'
+-- -- Cargar datos en la tabla Diversificacion
+LOAD DATA INFILE '/data/diversificacion.csv'
 INTO TABLE Diversificacion
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -215,8 +220,9 @@ CREATE TABLE Portafolio_Inversion (
     FOREIGN KEY (Portafolio_ID) REFERENCES Portafolios(ID),
     FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID)
 );
--- Cargar datos en la tabla Portafolio_Inversion
-LOAD DATA INFILE './data/portafolio_inversion.csv'
+
+-- -- Cargar datos en la tabla Portafolio_Inversion
+LOAD DATA INFILE '/data/portafolio_inversion.csv'
 INTO TABLE Portafolio_Inversion
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -232,8 +238,9 @@ CREATE TABLE Inversion_Categoria (
     FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID),
     FOREIGN KEY (Categoria_ID) REFERENCES Categorias_Activos(ID)
 );
--- Cargar datos en la tabla Inversion_Categoria
-LOAD DATA INFILE './data/inversion_categoria.csv'
+
+-- -- Cargar datos en la tabla Inversion_Categoria
+LOAD DATA INFILE '/data/inversion_categoria.csv'
 INTO TABLE Inversion_Categoria
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -249,8 +256,9 @@ CREATE TABLE Inversion_Moneda (
     FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID),
     FOREIGN KEY (Moneda_ID) REFERENCES Monedas(ID)
 );
--- Cargar datos en la tabla Inversion_Moneda
-LOAD DATA INFILE './data/inversion_moneda.csv'
+
+-- -- Cargar datos en la tabla Inversion_Moneda
+LOAD DATA INFILE '/data/inversion_moneda.csv'
 INTO TABLE Inversion_Moneda
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -268,8 +276,9 @@ CREATE TABLE Analisis_Portafolio (
     Ratio_Sharpe DECIMAL(5, 2) NOT NULL,
     FOREIGN KEY (Portafolio_ID) REFERENCES Portafolios(ID)
 );
--- Cargar datos en la tabla Analisis_Portafolio
-LOAD DATA INFILE './data/analisis_portafolio.csv'
+
+-- -- Cargar datos en la tabla Analisis_Portafolio
+LOAD DATA INFILE '/data/analisis_portafolio.csv'
 INTO TABLE Analisis_Portafolio
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -286,8 +295,9 @@ CREATE TABLE Reportes_Riesgo (
     Riesgo_Total DECIMAL(5, 2) NOT NULL,
     FOREIGN KEY (Portafolio_ID) REFERENCES Portafolios(ID)
 );
--- Cargar datos en la tabla Reportes_Riesgo
-LOAD DATA INFILE './data/reportes_riesgo.csv'
+
+-- -- Cargar datos en la tabla Reportes_Riesgo
+LOAD DATA INFILE '/data/reportes_riesgo.csv'
 INTO TABLE Reportes_Riesgo
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -304,8 +314,9 @@ CREATE TABLE Historico_Rendimientos (
     Rendimiento_Monetario DECIMAL(15, 2) NOT NULL,
     FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID)
 );
--- Cargar datos en la tabla Historico_Rendimientos
-LOAD DATA INFILE './data/historico_rendimientos.csv'
+
+-- -- Cargar datos en la tabla Historico_Rendimientos
+LOAD DATA INFILE '/data/historico_rendimientos.csv'
 INTO TABLE Historico_Rendimientos
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -320,8 +331,9 @@ CREATE TABLE Historico_Mercado (
     Indice_Mercado DECIMAL(10, 2) NOT NULL,
     Volatilidad DECIMAL(5, 2) NOT NULL CHECK (Volatilidad >= 0)
 );
--- Cargar datos en la tabla Historico_Mercado
-LOAD DATA INFILE './data/historico_mercado.csv'
+
+-- -- Cargar datos en la tabla Historico_Mercado
+LOAD DATA INFILE '/data/historico_mercado.csv'
 INTO TABLE Historico_Mercado
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -339,8 +351,9 @@ CREATE TABLE Historico_Gastos (
     FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID),
     FOREIGN KEY (Tipo_Gasto_ID) REFERENCES Tipos_Gasto(ID)
 );
--- Cargar datos en la tabla Historico_Gastos
-LOAD DATA INFILE './data/historico_gastos.csv'
+
+-- -- Cargar datos en la tabla Historico_Gastos
+LOAD DATA INFILE '/data/historico_gastos.csv'
 INTO TABLE Historico_Gastos
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -353,8 +366,9 @@ CREATE TABLE Estrategias (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(50) NOT NULL UNIQUE
 );
--- Cargar datos en la tabla Estrategias
-LOAD DATA INFILE './data/estrategias.csv'
+
+-- -- Cargar datos en la tabla Estrategias
+LOAD DATA INFILE '/data/estrategias.csv'
 INTO TABLE Estrategias
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -373,8 +387,9 @@ CREATE TABLE Rebalanceo (
     FOREIGN KEY (Portafolio_ID) REFERENCES Portafolios(ID),
     FOREIGN KEY (Inversion_ID) REFERENCES Inversiones(ID)
 );
--- Cargar datos en la tabla Rebalanceo
-LOAD DATA INFILE './data/rebalanceo.csv'
+
+-- -- Cargar datos en la tabla Rebalanceo
+LOAD DATA INFILE '/data/rebalanceo.csv'
 INTO TABLE Rebalanceo
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -391,8 +406,9 @@ CREATE TABLE Optimizacion (
     Riesgo_Maximo DECIMAL(5, 2) NOT NULL,
     FOREIGN KEY (Portafolio_ID) REFERENCES Portafolios(ID)
 );
--- Cargar datos en la tabla Optimizacion
-LOAD DATA INFILE './data/optimizacion.csv'
+
+-- -- Cargar datos en la tabla Optimizacion
+LOAD DATA INFILE '/data/optimizacion.csv'
 INTO TABLE Optimizacion
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -410,8 +426,9 @@ CREATE TABLE Log_Cambios (
     Accion VARCHAR(10) NOT NULL CHECK (Accion IN ('INSERT', 'UPDATE', 'DELETE')),
     FOREIGN KEY (Usuario_ID) REFERENCES Usuarios(ID)
 );
--- Cargar datos en la tabla Log_Cambios
-LOAD DATA INFILE './data/log_cambios.csv'
+
+-- -- Cargar datos en la tabla Log_Cambios
+LOAD DATA INFILE '/data/log_cambios.csv'
 INTO TABLE Log_Cambios
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
