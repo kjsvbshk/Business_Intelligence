@@ -7,85 +7,85 @@
         <mxCell id="Hechos_VAN" value="Hechos_VAN" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="330" y="398" width="170" height="170" as="geometry" />
         </mxCell>
-        <mxCell id="VAN_1" value="+ Inversion_ID: INT (PK)" parent="Hechos_VAN" vertex="1">
+        <mxCell id="VAN_1" value="+ Inversion_ID: INT (PK)" style="fontStyle=1" parent="Hechos_VAN" vertex="1">
           <mxGeometry y="30" width="170" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="VAN_2" value="+ Fecha: DATE" parent="Hechos_VAN" vertex="1">
+        <mxCell id="VAN_2" value="+ Fecha: DATE" style="fontStyle=1" parent="Hechos_VAN" vertex="1">
           <mxGeometry y="56" width="170" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="VAN_3" value="+ Flujo_Efectivo: DECIMAL" parent="Hechos_VAN" vertex="1">
+        <mxCell id="VAN_3" value="+ Flujo_Efectivo: DECIMAL" style="fontStyle=1" parent="Hechos_VAN" vertex="1">
           <mxGeometry y="82" width="170" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="VAN_4" value="+ Tasa_Descuento: DECIMAL" parent="Hechos_VAN" vertex="1">
+        <mxCell id="VAN_4" value="+ Tasa_Descuento: DECIMAL" style="fontStyle=1" parent="Hechos_VAN" vertex="1">
           <mxGeometry y="110" width="170" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="VAN_5" value="+ VAN: DECIMAL" parent="Hechos_VAN" vertex="1">
+        <mxCell id="VAN_5" value="+ VAN: DECIMAL" style="fontStyle=1" parent="Hechos_VAN" vertex="1">
           <mxGeometry y="140" width="170" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Dim_Tiempo" value="Dim_Tiempo" style="verticalAlign=top;" parent="1" vertex="1">
+        <mxCell id="Dim_Tiempo" value="Dim_Tiempo" style="verticalAlign=top;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="140" y="228" width="140" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="DT_1" value="+ Fecha_ID: INT (PK)" parent="Dim_Tiempo" vertex="1">
+        <mxCell id="DT_1" value="+ Fecha_ID: INT (PK)" style="fontStyle=1" parent="Dim_Tiempo" vertex="1">
           <mxGeometry y="26" width="140" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="DT_2" value="+ Año: INT" parent="Dim_Tiempo" vertex="1">
+        <mxCell id="DT_2" value="+ Año: INT" style="fontStyle=1" parent="Dim_Tiempo" vertex="1">
           <mxGeometry y="52" width="140" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="DT_3" value="+ Mes: INT" parent="Dim_Tiempo" vertex="1">
+        <mxCell id="DT_3" value="+ Mes: INT" style="fontStyle=1" parent="Dim_Tiempo" vertex="1">
           <mxGeometry y="78" width="140" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="DT_4" value="+ Día: INT" parent="Dim_Tiempo" vertex="1">
+        <mxCell id="DT_4" value="+ Día: INT" style="fontStyle=1" parent="Dim_Tiempo" vertex="1">
           <mxGeometry y="104" width="140" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="Dim_Tipo_Inversion" value="Dim_Tipo_Inversion" style="verticalAlign=top;" parent="1" vertex="1">
+        <mxCell id="Dim_Tipo_Inversion" value="Dim_Tipo_Inversion" style="verticalAlign=top;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="560" y="280" width="210" height="78" as="geometry" />
         </mxCell>
-        <mxCell id="DTI_1" value="+ TipoInversion_ID: INT (PK)" parent="Dim_Tipo_Inversion" vertex="1">
+        <mxCell id="DTI_1" value="+ TipoInversion_ID: INT (PK)" style="fontStyle=1" parent="Dim_Tipo_Inversion" vertex="1">
           <mxGeometry y="26" width="210" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="DTI_2" value="+ Nombre: VARCHAR" parent="Dim_Tipo_Inversion" vertex="1">
+        <mxCell id="DTI_2" value="+ Nombre: VARCHAR" style="fontStyle=1" parent="Dim_Tipo_Inversion" vertex="1">
           <mxGeometry y="52" width="210" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="Dim_Riesgo" value="Dim_Riesgo" style="spacingTop=-7;verticalAlign=top;" parent="1" vertex="1">
+        <mxCell id="Dim_Riesgo" value="Dim_Riesgo" style="spacingTop=-7;verticalAlign=top;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="120" y="598" width="160" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="DR_1" value="+ Riesgo_ID: INT (PK)" parent="Dim_Riesgo" vertex="1">
+        <mxCell id="DR_1" value="+ Riesgo_ID: INT (PK)" style="fontStyle=1" parent="Dim_Riesgo" vertex="1">
           <mxGeometry y="33.91" width="160" height="36.09" as="geometry" />
         </mxCell>
-        <mxCell id="DR_2" value="+ Nivel_Riesgo: VARCHAR" parent="Dim_Riesgo" vertex="1">
+        <mxCell id="DR_2" value="+ Nivel_Riesgo: VARCHAR" style="fontStyle=1" parent="Dim_Riesgo" vertex="1">
           <mxGeometry y="60" width="160" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="Dim_Usuario" value="Dim_Usuario" style="verticalAlign=top;" parent="1" vertex="1">
+        <mxCell id="Dim_Usuario" value="Dim_Usuario" style="verticalAlign=top;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="560" y="598" width="140" height="104" as="geometry" />
         </mxCell>
-        <mxCell id="DU_1" value="+ Usuario_ID: INT (PK)" parent="Dim_Usuario" vertex="1">
+        <mxCell id="DU_1" value="+ Usuario_ID: INT (PK)" style="fontStyle=1" parent="Dim_Usuario" vertex="1">
           <mxGeometry y="26" width="140" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="DU_2" value="+ Nombre: VARCHAR" parent="Dim_Usuario" vertex="1">
+        <mxCell id="DU_2" value="+ Nombre: VARCHAR" style="fontStyle=1" parent="Dim_Usuario" vertex="1">
           <mxGeometry y="52" width="140" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="DU_3" value="+ Pais: VARCHAR" parent="Dim_Usuario" vertex="1">
+        <mxCell id="DU_3" value="+ Pais: VARCHAR" style="fontStyle=1" parent="Dim_Usuario" vertex="1">
           <mxGeometry y="78" width="140" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="Re_AqGGg5lzHNEeBILwz-3" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" edge="1" parent="1" source="DT_4" target="Hechos_VAN">
+        <mxCell id="Re_AqGGg5lzHNEeBILwz-3" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;fontStyle=1" parent="1" source="DT_4" target="Hechos_VAN" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="280" y="378" as="sourcePoint" />
             <mxPoint x="330" y="328" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Re_AqGGg5lzHNEeBILwz-4" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="DTI_2" target="Hechos_VAN">
+        <mxCell id="Re_AqGGg5lzHNEeBILwz-4" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;fontStyle=1" parent="1" source="DTI_2" target="Hechos_VAN" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="570" y="380" as="sourcePoint" />
             <mxPoint x="670" y="416" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Re_AqGGg5lzHNEeBILwz-6" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="Dim_Riesgo" target="Hechos_VAN">
+        <mxCell id="Re_AqGGg5lzHNEeBILwz-6" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=0;fontStyle=1" parent="1" source="Dim_Riesgo" target="Hechos_VAN" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="170" y="540" as="sourcePoint" />
             <mxPoint x="260" y="546" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Re_AqGGg5lzHNEeBILwz-7" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;exitX=0;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="Dim_Usuario" target="VAN_5">
+        <mxCell id="Re_AqGGg5lzHNEeBILwz-7" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;exitX=0;exitY=0;exitDx=0;exitDy=0;fontStyle=1" parent="1" source="Dim_Usuario" target="VAN_5" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="600" y="510" as="sourcePoint" />
             <mxPoint x="690" y="516" as="targetPoint" />
