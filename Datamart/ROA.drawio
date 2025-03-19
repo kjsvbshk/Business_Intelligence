@@ -1,100 +1,72 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:136.0) Gecko/20100101 Firefox/136.0" version="26.1.1">
   <diagram id="DiagramaROA" name="Diagrama ROA">
     <mxGraphModel dx="2048" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        
-        <!-- Tabla de hechos: Hechos_ROA -->
-        <mxCell id="Hechos_ROA" value="Hechos_ROA" vertex="1" parent="1">
-          <mxGeometry x="310" y="120" width="200" height="140" as="geometry" />
+        <mxCell id="Hechos_ROA" value="Hechos_ROA" style="verticalAlign=top;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="330" y="330" width="200" height="140" as="geometry" />
         </mxCell>
-
-        <mxCell id="ROA_1" value="+ Empresa_ID: INT (PK)" vertex="1" parent="Hechos_ROA">
+        <mxCell id="ROA_1" value="+ Empresa_ID: INT (PK)" style="fontStyle=1" parent="Hechos_ROA" vertex="1">
           <mxGeometry y="30" width="200" height="26" as="geometry" />
         </mxCell>
-
-        <mxCell id="ROA_2" value="+ Fecha: DATE" vertex="1" parent="Hechos_ROA">
+        <mxCell id="ROA_2" value="+ Fecha: DATE" style="fontStyle=1" parent="Hechos_ROA" vertex="1">
           <mxGeometry y="56" width="200" height="26" as="geometry" />
         </mxCell>
-
-        <mxCell id="ROA_3" value="+ Ganancia_Neta: DECIMAL" vertex="1" parent="Hechos_ROA">
+        <mxCell id="ROA_3" value="+ Ganancia_Neta: DECIMAL" style="fontStyle=1" parent="Hechos_ROA" vertex="1">
           <mxGeometry y="82" width="200" height="28" as="geometry" />
         </mxCell>
-
-        <mxCell id="ROA_4" value="+ Activos_Totales: DECIMAL" vertex="1" parent="Hechos_ROA">
+        <mxCell id="ROA_4" value="+ Activos_Totales: DECIMAL" style="fontStyle=1" parent="Hechos_ROA" vertex="1">
           <mxGeometry y="110" width="200" height="30" as="geometry" />
         </mxCell>
-
-        <mxCell id="ROA_5" value="+ ROA: DECIMAL" vertex="1" parent="Hechos_ROA">
+        <mxCell id="ROA_5" value="+ ROA: DECIMAL" style="fontStyle=1" parent="Hechos_ROA" vertex="1">
           <mxGeometry y="140" width="200" height="30" as="geometry" />
         </mxCell>
-
-        <!-- Dim_Tiempo -->
-        <mxCell id="Dim_Tiempo" value="Dim_Tiempo" vertex="1" parent="1">
-          <mxGeometry x="100" width="140" height="130" as="geometry" />
+        <mxCell id="Dim_Tiempo" value="Dim_Tiempo" style="verticalAlign=top;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="120" y="210" width="140" height="130" as="geometry" />
         </mxCell>
-
-        <mxCell id="DT_1" value="+ Fecha_ID: INT (PK)" vertex="1" parent="Dim_Tiempo">
+        <mxCell id="DT_1" value="+ Fecha_ID: INT (PK)" style="fontStyle=1" parent="Dim_Tiempo" vertex="1">
           <mxGeometry y="26" width="140" height="26" as="geometry" />
         </mxCell>
-
-        <mxCell id="DT_2" value="+ Año: INT" vertex="1" parent="Dim_Tiempo">
+        <mxCell id="DT_2" value="+ Año: INT" style="fontStyle=1" parent="Dim_Tiempo" vertex="1">
           <mxGeometry y="52" width="140" height="26" as="geometry" />
         </mxCell>
-
-        <mxCell id="DT_3" value="+ Mes: INT" vertex="1" parent="Dim_Tiempo">
+        <mxCell id="DT_3" value="+ Mes: INT" style="fontStyle=1" parent="Dim_Tiempo" vertex="1">
           <mxGeometry y="78" width="140" height="26" as="geometry" />
         </mxCell>
-
-        <mxCell id="DT_4" value="+ Día: INT" vertex="1" parent="Dim_Tiempo">
+        <mxCell id="DT_4" value="+ Día: INT" style="fontStyle=1" parent="Dim_Tiempo" vertex="1">
           <mxGeometry y="104" width="140" height="26" as="geometry" />
         </mxCell>
-
-        <!-- Dim_Empresa -->
-        <mxCell id="Dim_Empresa" value="Dim_Empresa" vertex="1" parent="1">
-          <mxGeometry x="560" y="52" width="210" height="104" as="geometry" />
+        <mxCell id="Dim_Empresa" value="Dim_Empresa" style="verticalAlign=top;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="580" y="262" width="210" height="104" as="geometry" />
         </mxCell>
-
-        <mxCell id="DE_1" value="+ Empresa_ID: INT (PK)" vertex="1" parent="Dim_Empresa">
+        <mxCell id="DE_1" value="+ Empresa_ID: INT (PK)" style="fontStyle=1" parent="Dim_Empresa" vertex="1">
           <mxGeometry y="26" width="210" height="26" as="geometry" />
         </mxCell>
-
-        <mxCell id="DE_2" value="+ Nombre: VARCHAR" vertex="1" parent="Dim_Empresa">
+        <mxCell id="DE_2" value="+ Nombre: VARCHAR" style="fontStyle=1" parent="Dim_Empresa" vertex="1">
           <mxGeometry y="52" width="210" height="26" as="geometry" />
         </mxCell>
-
-        <mxCell id="DE_3" value="+ Pais: VARCHAR" vertex="1" parent="Dim_Empresa">
+        <mxCell id="DE_3" value="+ Pais: VARCHAR" style="fontStyle=1" parent="Dim_Empresa" vertex="1">
           <mxGeometry y="78" width="210" height="26" as="geometry" />
         </mxCell>
-
-        <!-- Dim_Sector -->
-        <mxCell id="Dim_Sector" value="Dim_Sector" vertex="1" parent="1">
-          <mxGeometry x="80" y="320" width="160" height="70" as="geometry" />
+        <mxCell id="Dim_Sector" value="Dim_Sector" style="verticalAlign=top;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="100" y="530" width="160" height="70" as="geometry" />
         </mxCell>
-
-        <mxCell id="DS_1" value="+ Sector_ID: INT (PK)" vertex="1" parent="Dim_Sector">
+        <mxCell id="DS_1" value="+ Sector_ID: INT (PK)" style="fontStyle=1" parent="Dim_Sector" vertex="1">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
         </mxCell>
-
-        <mxCell id="DS_2" value="+ Nombre: VARCHAR" vertex="1" parent="Dim_Sector">
+        <mxCell id="DS_2" value="+ Nombre: VARCHAR" style="fontStyle=1" parent="Dim_Sector" vertex="1">
           <mxGeometry y="52" width="160" height="26" as="geometry" />
         </mxCell>
-
-        <!-- Relaciones -->
-        <mxCell id="rel_1" edge="1" parent="1" source="Dim_Tiempo" target="Hechos_ROA">
+        <mxCell id="rel_1" style="fontStyle=1" parent="1" source="Dim_Tiempo" target="Hechos_ROA" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="rel_2" edge="1" parent="1" source="Dim_Empresa" target="Hechos_ROA">
+        <mxCell id="rel_2" style="fontStyle=1" parent="1" source="Dim_Empresa" target="Hechos_ROA" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="rel_3" edge="1" parent="1" source="Dim_Sector" target="Hechos_ROA">
+        <mxCell id="rel_3" style="fontStyle=1" parent="1" source="Dim_Sector" target="Hechos_ROA" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
       </root>
     </mxGraphModel>
   </diagram>
