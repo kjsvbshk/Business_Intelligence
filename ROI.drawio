@@ -16,11 +16,11 @@
         <mxCell id="4" value="dim_fechas" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="350" y="250" width="120" height="60" as="geometry" />
         </mxCell>
-        <!-- Conexión dm_roi -> dim_inversiones -->
+        <!-- Conexion dm_roi -> dim_inversiones -->
         <mxCell id="5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="2" target="3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <!-- Conexión dm_roi -> dim_fechas -->
+        <!-- Conexion dm_roi -> dim_fechas -->
         <mxCell id="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="2" target="4">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
