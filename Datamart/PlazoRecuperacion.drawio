@@ -1,113 +1,81 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:136.0) Gecko/20100101 Firefox/136.0" version="26.1.1">
   <diagram id="DiagramaPlazoRecuperacion" name="Diagrama Plazo Recuperación">
     <mxGraphModel dx="2048" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        
-        <!-- Tabla de hechos: Hechos_Plazo_Recuperacion -->
-        <mxCell id="Hechos_Plazo_Recuperacion" value="Hechos_Plazo_Recuperacion" vertex="1" parent="1">
-          <mxGeometry x="310" y="120" width="200" height="140" as="geometry" />
+        <mxCell id="Hechos_Plazo_Recuperacion" value="Hechos_Plazo_Recuperacion" style="fontStyle=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="299" y="410" width="200" height="140" as="geometry" />
         </mxCell>
-
-        <mxCell id="PR_1" value="+ Inversion_ID: INT (PK)" vertex="1" parent="Hechos_Plazo_Recuperacion">
+        <mxCell id="PR_1" value="+ Inversion_ID: INT (PK)" style="fontStyle=1" parent="Hechos_Plazo_Recuperacion" vertex="1">
           <mxGeometry y="30" width="200" height="26" as="geometry" />
         </mxCell>
-
-        <mxCell id="PR_2" value="+ Fecha: DATE" vertex="1" parent="Hechos_Plazo_Recuperacion">
+        <mxCell id="PR_2" value="+ Fecha: DATE" style="fontStyle=1" parent="Hechos_Plazo_Recuperacion" vertex="1">
           <mxGeometry y="56" width="200" height="26" as="geometry" />
         </mxCell>
-
-        <mxCell id="PR_3" value="+ Flujo_Efectivo_Acumulado: DECIMAL" vertex="1" parent="Hechos_Plazo_Recuperacion">
+        <mxCell id="PR_3" value="+ Flujo_Efectivo_Acumulado: DECIMAL" style="fontStyle=1" parent="Hechos_Plazo_Recuperacion" vertex="1">
           <mxGeometry y="82" width="200" height="28" as="geometry" />
         </mxCell>
-
-        <mxCell id="PR_4" value="+ Plazo_Recuperacion: INT" vertex="1" parent="Hechos_Plazo_Recuperacion">
+        <mxCell id="PR_4" value="+ Plazo_Recuperacion: INT" style="fontStyle=1" parent="Hechos_Plazo_Recuperacion" vertex="1">
           <mxGeometry y="110" width="200" height="30" as="geometry" />
         </mxCell>
-
-        <!-- Dim_Tiempo -->
-        <mxCell id="Dim_Tiempo" value="Dim_Tiempo" vertex="1" parent="1">
-          <mxGeometry x="100" width="140" height="130" as="geometry" />
+        <mxCell id="Dim_Tiempo" value="Dim_Tiempo" style="fontStyle=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="89" y="290" width="140" height="130" as="geometry" />
         </mxCell>
-
-        <mxCell id="DT_1" value="+ Fecha_ID: INT (PK)" vertex="1" parent="Dim_Tiempo">
+        <mxCell id="DT_1" value="+ Fecha_ID: INT (PK)" style="fontStyle=1" parent="Dim_Tiempo" vertex="1">
           <mxGeometry y="26" width="140" height="26" as="geometry" />
         </mxCell>
-
-        <mxCell id="DT_2" value="+ Año: INT" vertex="1" parent="Dim_Tiempo">
+        <mxCell id="DT_2" value="+ Año: INT" style="fontStyle=1" parent="Dim_Tiempo" vertex="1">
           <mxGeometry y="52" width="140" height="26" as="geometry" />
         </mxCell>
-
-        <mxCell id="DT_3" value="+ Mes: INT" vertex="1" parent="Dim_Tiempo">
+        <mxCell id="DT_3" value="+ Mes: INT" style="fontStyle=1" parent="Dim_Tiempo" vertex="1">
           <mxGeometry y="78" width="140" height="26" as="geometry" />
         </mxCell>
-
-        <mxCell id="DT_4" value="+ Día: INT" vertex="1" parent="Dim_Tiempo">
+        <mxCell id="DT_4" value="+ Día: INT" style="fontStyle=1" parent="Dim_Tiempo" vertex="1">
           <mxGeometry y="104" width="140" height="26" as="geometry" />
         </mxCell>
-
-        <!-- Dim_Tipo_Inversion -->
-        <mxCell id="Dim_Tipo_Inversion" value="Dim_Tipo_Inversion" vertex="1" parent="1">
-          <mxGeometry x="560" y="52" width="210" height="78" as="geometry" />
+        <mxCell id="Dim_Tipo_Inversion" value="Dim_Tipo_Inversion" style="fontStyle=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="549" y="342" width="210" height="78" as="geometry" />
         </mxCell>
-
-        <mxCell id="DTI_1" value="+ TipoInversion_ID: INT (PK)" vertex="1" parent="Dim_Tipo_Inversion">
+        <mxCell id="DTI_1" value="+ TipoInversion_ID: INT (PK)" style="fontStyle=1" parent="Dim_Tipo_Inversion" vertex="1">
           <mxGeometry y="26" width="210" height="26" as="geometry" />
         </mxCell>
-
-        <mxCell id="DTI_2" value="+ Nombre: VARCHAR" vertex="1" parent="Dim_Tipo_Inversion">
+        <mxCell id="DTI_2" value="+ Nombre: VARCHAR" style="fontStyle=1" parent="Dim_Tipo_Inversion" vertex="1">
           <mxGeometry y="52" width="210" height="26" as="geometry" />
         </mxCell>
-
-        <!-- Dim_Riesgo -->
-        <mxCell id="Dim_Riesgo" value="Dim_Riesgo" vertex="1" parent="1">
-          <mxGeometry x="80" y="320" width="160" height="90" as="geometry" />
+        <mxCell id="Dim_Riesgo" value="Dim_Riesgo" style="fontStyle=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="69" y="610" width="160" height="90" as="geometry" />
         </mxCell>
-
-        <mxCell id="DR_1" value="+ Riesgo_ID: INT (PK)" vertex="1" parent="Dim_Riesgo">
+        <mxCell id="DR_1" value="+ Riesgo_ID: INT (PK)" style="fontStyle=1" parent="Dim_Riesgo" vertex="1">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
         </mxCell>
-
-        <mxCell id="DR_2" value="+ Nivel_Riesgo: VARCHAR" vertex="1" parent="Dim_Riesgo">
+        <mxCell id="DR_2" value="+ Nivel_Riesgo: VARCHAR" style="fontStyle=1" parent="Dim_Riesgo" vertex="1">
           <mxGeometry y="52" width="160" height="38" as="geometry" />
         </mxCell>
-
-        <!-- Dim_Usuario -->
-        <mxCell id="Dim_Usuario" value="Dim_Usuario" vertex="1" parent="1">
-          <mxGeometry x="560" y="320" width="140" height="104" as="geometry" />
+        <mxCell id="Dim_Usuario" value="Dim_Usuario" style="fontStyle=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="549" y="610" width="140" height="104" as="geometry" />
         </mxCell>
-
-        <mxCell id="DU_1" value="+ Usuario_ID: INT (PK)" vertex="1" parent="Dim_Usuario">
+        <mxCell id="DU_1" value="+ Usuario_ID: INT (PK)" style="fontStyle=1" parent="Dim_Usuario" vertex="1">
           <mxGeometry y="26" width="140" height="26" as="geometry" />
         </mxCell>
-
-        <mxCell id="DU_2" value="+ Nombre: VARCHAR" vertex="1" parent="Dim_Usuario">
+        <mxCell id="DU_2" value="+ Nombre: VARCHAR" style="fontStyle=1" parent="Dim_Usuario" vertex="1">
           <mxGeometry y="52" width="140" height="26" as="geometry" />
         </mxCell>
-
-        <mxCell id="DU_3" value="+ Pais: VARCHAR" vertex="1" parent="Dim_Usuario">
+        <mxCell id="DU_3" value="+ Pais: VARCHAR" style="fontStyle=1" parent="Dim_Usuario" vertex="1">
           <mxGeometry y="78" width="140" height="26" as="geometry" />
         </mxCell>
-
-        <!-- Relaciones -->
-        <mxCell id="rel_1" edge="1" parent="1" source="Dim_Tiempo" target="Hechos_Plazo_Recuperacion">
+        <mxCell id="rel_1" style="fontStyle=1" parent="1" source="Dim_Tiempo" target="Hechos_Plazo_Recuperacion" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="rel_2" edge="1" parent="1" source="Dim_Tipo_Inversion" target="Hechos_Plazo_Recuperacion">
+        <mxCell id="rel_2" style="fontStyle=1" parent="1" source="Dim_Tipo_Inversion" target="Hechos_Plazo_Recuperacion" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="rel_3" edge="1" parent="1" source="Dim_Riesgo" target="Hechos_Plazo_Recuperacion">
+        <mxCell id="rel_3" style="fontStyle=1" parent="1" source="Dim_Riesgo" target="Hechos_Plazo_Recuperacion" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="rel_4" edge="1" parent="1" source="Dim_Usuario" target="Hechos_Plazo_Recuperacion">
+        <mxCell id="rel_4" style="fontStyle=1" parent="1" source="Dim_Usuario" target="Hechos_Plazo_Recuperacion" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
       </root>
     </mxGraphModel>
   </diagram>
