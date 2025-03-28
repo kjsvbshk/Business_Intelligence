@@ -162,17 +162,55 @@ CREATE TABLE Mercado (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Fecha DATE NOT NULL,
     Indice_Mercado DECIMAL(10, 2) NOT NULL,
-    Volatilidad DECIMAL(5, 2) NOT NULL CHECK (Volatilidad >= 0)
+    Volatilidad DECIMAL(5, 2) NOT NULL CHECK (Volatilidad >= 0),
+    Tipo_Indice VARCHAR(50)    
 );
 
 -- -- Cargar datos en la tabla Mercado
-LOAD DATA INFILE '/data/mercado.csv'
-INTO TABLE Mercado
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS
-(Fecha, Indice_Mercado, Volatilidad);
+DELIMITER //
+CREATE PROCEDURE GenerarDatosMercadoAleatorio()
+BEGIN
+    DECLARE i INT DEFAULT 0;
+    DECLARE fecha_aleatoria DATE;
+    DECLARE base_indice DECIMAL(10,2);
+    DECLARE tipo_indice VARCHAR(20);
+    
+    WHILE i < 365 DO
+        SET fecha_aleatoria = DATE_ADD('2010-01-01', INTERVAL FLOOR(RAND() * DATEDIFF('2025-03-03', '2010-01-01')) DAY);
+        
+        CASE 
+            WHEN RAND() < 0.25 THEN 
+                SET tipo_indice = 'S&P500';
+                SET base_indice = 3000.00 + (YEAR(fecha_aleatoria) - 2010) * 200;
+            WHEN RAND() < 0.50 THEN 
+                SET tipo_indice = 'NASDAQ';
+                SET base_indice = 8000.00 + (YEAR(fecha_aleatoria) - 2010) * 300;
+            WHEN RAND() < 0.75 THEN 
+                SET tipo_indice = 'IBEX35';
+                SET base_indice = 8000.00 + (YEAR(fecha_aleatoria) - 2010) * 100;
+            ELSE 
+                SET tipo_indice = 'FTSE100';
+                SET base_indice = 6000.00 + (YEAR(fecha_aleatoria) - 2010) * 150;
+        END CASE;
+        
+        IF YEAR(fecha_aleatoria) BETWEEN 2020 AND 2025 THEN
+            SET base_indice = base_indice * 1.3;
+        END IF;
+        
+        INSERT INTO Mercado (Fecha, Indice_Mercado, Volatilidad, Tipo_Indice)
+        VALUES (
+            fecha_aleatoria,
+            ROUND(base_indice * (0.95 + RAND() * 0.1), 2),
+            ROUND(10 + RAND() * 20, 2),
+            tipo_indice
+        );
+        
+        SET i = i + 1;
+    END WHILE;
+END //
+DELIMITER;
+
+CALL GenerarDatosMercadoAleatorio();
 
 -- Tabla: Gastos_Inversion
 CREATE TABLE Gastos_Inversion (
