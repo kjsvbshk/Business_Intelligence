@@ -250,6 +250,60 @@ LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (Portafolio_ID, Inversion_ID, Porcentaje_Asignado);
 
+DELIMITER //
+CREATE PROCEDURE PoblarDiversificacion()
+BEGIN
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE port_id INT;
+    DECLARE inv_id INT;
+    DECLARE porcentaje DECIMAL(5,2);
+    DECLARE inversiones_port INT;
+    DECLARE sum_porcentaje DECIMAL(5,2);
+   
+    DECLARE cur_portafolios CURSOR FOR
+        SELECT ID FROM Portafolios;
+    
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+    
+    OPEN cur_portafolios;
+    
+    read_loop: LOOP
+        FETCH cur_portafolios INTO port_id;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        
+        SET inversiones_port = 5 + FLOOR(RAND() * 6);
+        SET sum_porcentaje = 0;
+        
+        WHILE inversiones_port > 0 DO
+          
+            SELECT ID INTO inv_id FROM Inversiones 
+            WHERE ID NOT IN (
+                SELECT Inversion_ID FROM Diversificacion 
+                WHERE Portafolio_ID = port_id
+            ) ORDER BY RAND() LIMIT 1;
+            
+            IF inversiones_port = 1 THEN
+                SET porcentaje = 100 - sum_porcentaje;
+            ELSE
+                SET porcentaje = ROUND(10 + RAND() * 30, 2);
+                SET sum_porcentaje = sum_porcentaje + porcentaje;
+            END IF;
+            
+           
+            INSERT INTO Diversificacion (Portafolio_ID, Inversion_ID, Porcentaje_Asignado)
+            VALUES (port_id, inv_id, porcentaje);
+            
+            SET inversiones_port = inversiones_port - 1;
+        END WHILE;
+    END LOOP;
+    
+    CLOSE cur_portafolios;
+END //
+DELIMITER ;
+
+
 -- Tabla: Portafolio_Inversion
 CREATE TABLE Portafolio_Inversion (
     ID INT AUTO_INCREMENT PRIMARY KEY,
@@ -316,13 +370,51 @@ CREATE TABLE Analisis_Portafolio (
 );
 
 -- -- Cargar datos en la tabla Analisis_Portafolio
-LOAD DATA INFILE '/data/analisis_portafolio.csv'
-INTO TABLE Analisis_Portafolio
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS
-(Portafolio_ID, Fecha, ROI, Rentabilidad_Anualizada, Ratio_Sharpe);
+DELIMITER //
+
+CREATE PROCEDURE PoblarAnalisisPortafolios()
+BEGIN
+    DECLARE done INT DEFAULT 0;
+    DECLARE port_id INT;
+    DECLARE fecha_analisis DATE;
+    DECLARE base_roi DECIMAL(5,2);
+    
+    DECLARE cur CURSOR FOR SELECT ID FROM Portafolios;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+
+    OPEN cur;
+
+    read_loop: LOOP
+        FETCH cur INTO port_id;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+
+       
+        SET fecha_analisis = (SELECT MIN(Fecha_Creacion) FROM Portafolios WHERE ID = port_id);
+
+     
+        WHILE fecha_analisis <= CURDATE() DO
+            SET base_roi = 0.5 + (YEAR(fecha_analisis) - 2010) * 0.3;
+            
+            INSERT INTO Analisis_Portafolio (Portafolio_ID, Fecha, ROI, Rentabilidad_Anualizada, Ratio_Sharpe)
+            VALUES (
+                port_id,
+                fecha_analisis,
+                ROUND(base_roi + RAND() * 3 - 1.5, 2), 
+                ROUND(base_roi * 12 + RAND() * 10 - 5, 2), 
+                ROUND(0.5 + RAND() * 2, 2)  
+            );
+
+            SET fecha_analisis = DATE_ADD(fecha_analisis, INTERVAL 1 MONTH);
+        END WHILE;
+    END LOOP;
+
+    CLOSE cur;
+END //
+
+DELIMITER ;
+
 
 -- Tabla: Reportes_Riesgo
 CREATE TABLE Reportes_Riesgo (
@@ -334,14 +426,51 @@ CREATE TABLE Reportes_Riesgo (
     FOREIGN KEY (Portafolio_ID) REFERENCES Portafolios(ID)
 );
 
--- -- Cargar datos en la tabla Reportes_Riesgo
-LOAD DATA INFILE '/data/reportes_riesgo.csv'
-INTO TABLE Reportes_Riesgo
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS
-(Portafolio_ID, Fecha, Volatilidad, Riesgo_Total);
+DELIMITER //
+
+CREATE PROCEDURE PoblarReportesRiesgo()
+BEGIN
+    DECLARE done INT DEFAULT 0;
+    DECLARE port_id INT;
+    DECLARE fecha_reporte DATE;
+    DECLARE base_riesgo DECIMAL(5,2);
+
+
+    DECLARE cur CURSOR FOR SELECT ID FROM Portafolios;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+
+    OPEN cur;
+
+    read_loop: LOOP
+        FETCH cur INTO port_id;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+
+       
+        SET fecha_reporte = (SELECT MIN(Fecha_Creacion) FROM Portafolios WHERE ID = port_id);
+
+      
+        WHILE fecha_reporte <= CURDATE() DO
+            SET base_riesgo = 3 + (YEAR(fecha_reporte) - 2010) * 0.2;
+            
+            INSERT INTO Reportes_Riesgo (Portafolio_ID, Fecha, Volatilidad, Riesgo_Total)
+            VALUES (
+                port_id,
+                fecha_reporte,
+                ROUND(base_riesgo + RAND() * 5, 2),
+                ROUND(base_riesgo * 1.5 + RAND() * 3, 2)
+            );
+            
+            SET fecha_reporte = DATE_ADD(fecha_reporte, INTERVAL 3 MONTH);
+        END WHILE;
+    END LOOP;
+
+    CLOSE cur;
+END //
+
+DELIMITER ;
+
 
 -- Tabla: Historico_Rendimientos
 CREATE TABLE Historico_Rendimientos (
@@ -379,6 +508,27 @@ LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (Fecha, Indice_Mercado, Volatilidad);
 
+DELIMITER //
+CREATE PROCEDURE PoblarHistoricoMercado()
+BEGIN
+    DECLARE fecha_actual DATE DEFAULT '2010-01-01';
+    
+    WHILE fecha_actual <= '2025-03-03' DO
+        IF WEEKDAY(fecha_actual) < 5 THEN
+            INSERT INTO Historico_Mercado (Fecha, Indice_Mercado, Volatilidad, Tipo_Indice)
+            VALUES (
+                fecha_actual,
+                ROUND(3000 + 150 * YEAR(fecha_actual) - 2010) + RAND() * 500, 2),
+                ROUND(5 + RAND() * 20, 2),
+                CASE WHEN RAND() < 0.5 THEN 'S&P500' ELSE 'NASDAQ' END
+            );
+        END IF;
+        
+        SET fecha_actual = DATE_ADD(fecha_actual, INTERVAL 1 DAY);
+    END WHILE;
+END //
+DELIMITER ;
+
 -- Tabla: Historico_Gastos
 CREATE TABLE Historico_Gastos (
     ID INT AUTO_INCREMENT PRIMARY KEY,
@@ -390,14 +540,27 @@ CREATE TABLE Historico_Gastos (
     FOREIGN KEY (Tipo_Gasto_ID) REFERENCES Tipos_Gasto(ID)
 );
 
--- -- Cargar datos en la tabla Historico_Gastos
-LOAD DATA INFILE '/data/historico_gastos.csv'
-INTO TABLE Historico_Gastos
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS
-(Inversion_ID, Fecha, Tipo_Gasto_ID, Monto);
+DELIMITER //
+
+CREATE PROCEDURE PoblarHistoricoGastos()
+BEGIN
+   
+    INSERT INTO Historico_Gastos (Inversion_ID, Fecha, Tipo_Gasto_ID, Monto)
+    SELECT Inversion_ID, Fecha, Tipo_Gasto_ID, Monto
+    FROM Gastos_Inversion;
+
+ 
+    INSERT INTO Historico_Gastos (Inversion_ID, Fecha, Tipo_Gasto_ID, Monto)
+    SELECT 
+        Inversion_ID, 
+        GREATEST(DATE_ADD(Fecha, INTERVAL FLOOR(RAND() * 180 - 90) DAY), '2000-01-01'),
+        Tipo_Gasto_ID,
+        ROUND(Monto * (0.85 + RAND() * 0.3), 2)
+    FROM (SELECT * FROM Gastos_Inversion ORDER BY RAND() LIMIT 500) AS subquery;
+END //
+
+DELIMITER ;
+
 
 -- Tabla: Estrategias
 CREATE TABLE Estrategias (
