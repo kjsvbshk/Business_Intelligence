@@ -13,6 +13,20 @@
             "database": "inversiones_db",
             "username": "admin",
             "password": "admin"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "inversiones",
+            "database": "rentabilidad",
+            "username": "root",
+            "password": "rootpassword"
         }
     ]
 }

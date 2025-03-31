@@ -14,6 +14,7 @@ services:
       - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql  # Monta el archivo init.sql
       - ./scripts/data:/data  # Volumen para persistir los datos de la aplicacion
       - ./my.cnf:/etc/mysql/conf.d/my.cnf
+    command: --secure-file-priv=""
     networks:
       - rentabilidad_network
 

@@ -1,101 +1,101 @@
 Nombre,Tipo_ID,Fecha_Inicio,Monto_Inicial,Riesgo_ID,Usuario_ID,Descripcion,Moneda_ID,Categoria_ID
 Acciones de Apple,1,2023-01-15,10000.00,3,1,Inversion en acciones de Apple Inc.,1,1
 Acciones de Tesla,1,2023-02-10,5000.00,3,1,Inversion en acciones de Tesla Inc.,1,1
-Bonos del Tesoro de EE.UU.,2,2023-03-01,20000.00,1,1,Bonos del Tesoro a 10 anos,1,2
-Bonos Corporativos de Microsoft,2,2023-04-05,15000.00,2,1,Bonos corporativos de Microsoft con vencimiento a 5 anos,1,2
-Apartamento en Miami,4,2023-05-20,300000.00,2,1,Inversion en un apartamento en Miami Florida,1,3
-Oficina en Madrid,4,2023-06-15,250000.00,2,1,Inversion en una oficina en el centro de Madrid,2,3
-Bitcoin,11,2023-07-01,5000.00,3,1,Inversion en Bitcoin,1,4
-Ethereum,11,2023-08-10,3000.00,3,1,Inversion en Ethereum,1,4
-Fondo de Tecnologia Vanguard,21,2023-09-05,10000.00,2,1,Fondo mutuo enfocado en empresas de tecnologia,1,1
-Fondo de Energias Renovables BlackRock,21,2023-10-01,8000.00,2,1,Fondo mutuo enfocado en energias renovables,1,5
-ETF SPDR S&P 500,22,2023-11-15,12000.00,2,1,ETF que replica el indice S&P 500,1,1
-ETF iShares MSCI Emerging Markets,22,2023-12-01,7000.00,3,1,ETF enfocado en mercados emergentes,1,6
-Acciones de Amazon,1,2023-01-20,8000.00,3,1,Inversion en acciones de Amazon.com Inc.,1,1
-Acciones de Google,1,2023-02-15,7000.00,3,1,Inversion en acciones de Alphabet Inc. (Google),1,1
-Bonos del Gobierno de Alemania,2,2023-03-10,18000.00,1,1,Bonos del gobierno aleman a 5 anos,2,2
-Bonos Corporativos de Apple,2,2023-04-12,12000.00,2,1,Bonos corporativos de Apple con vencimiento a 3 anos,1,2
-Casa en Buenos Aires,4,2023-05-25,200000.00,2,1,Inversion en una casa en Buenos Aires Argentina,3,3
-Local Comercial en Barcelona,4,2023-06-20,180000.00,2,1,Inversion en un local comercial en Barcelona Espana,2,3
-Litecoin,11,2023-07-05,2000.00,3,1,Inversion en Litecoin,1,4
-Ripple,11,2023-08-15,1500.00,3,1,Inversion en Ripple (XRP),1,4
-Fondo de Salud Fidelity,21,2023-09-10,9000.00,2,1,Fondo mutuo enfocado en empresas de salud,1,7
-Fondo de Bienes de Consumo T. Rowe Price,21,2023-10-05,7500.00,2,1,Fondo mutuo enfocado en bienes de consumo,1,8
-ETF Vanguard Total Stock Market,22,2023-11-20,11000.00,2,1,ETF que replica el mercado total de acciones de EE.UU.,1,1
-ETF iShares Global Clean Energy,22,2023-12-05,6000.00,3,1,ETF enfocado en energias limpias a nivel global,1,5
-Acciones de Netflix,1,2023-01-25,6000.00,3,1,Inversion en acciones de Netflix Inc.,1,1
-Acciones de Meta (Facebook),1,2023-02-20,5500.00,3,1,Inversion en acciones de Meta Platforms Inc.,1,1
-Bonos del Gobierno de Japon,2,2023-03-15,22000.00,1,1,Bonos del gobierno japones a 7 anos,4,2
-Bonos Corporativos de Tesla,2,2023-04-18,10000.00,2,1,Bonos corporativos de Tesla con vencimiento a 4 anos,1,2
-Terreno en Cancun,4,2023-05-30,150000.00,2,1,Inversion en un terreno en Cancun Mexico,1,3
-Edificio en Lima,4,2023-06-25,280000.00,2,1,Inversion en un edificio en Lima Peru,3,3
-Cardano,11,2023-07-10,2500.00,3,1,Inversion en Cardano (ADA),1,4
-Polkadot,11,2023-08-20,1800.00,3,1,Inversion en Polkadot (DOT),1,4
-Fondo de Tecnologia T. Rowe Price,21,2023-09-15,8500.00,2,1,Fondo mutuo enfocado en empresas de tecnologia,1,1
-Fondo de Infraestructura BlackRock,21,2023-10-10,7000.00,2,1,Fondo mutuo enfocado en infraestructura,1,9
-ETF Invesco QQQ,22,2023-11-25,13000.00,2,1,ETF que replica el indice NASDAQ-100,1,1
-ETF iShares Global Tech,22,2023-12-10,6500.00,3,1,ETF enfocado en empresas de tecnologia a nivel global,1,1
-Acciones de NVIDIA,1,2023-01-30,9000.00,3,1,Inversion en acciones de NVIDIA Corporation,1,1
-Acciones de Intel,1,2023-02-25,4500.00,3,1,Inversion en acciones de Intel Corporation,1,1
-Bonos del Gobierno de Canada,2,2023-03-20,19000.00,1,1,Bonos del gobierno canadiense a 10 anos,5,2
-Bonos Corporativos de Amazon,2,2023-04-22,11000.00,2,1,Bonos corporativos de Amazon con vencimiento a 5 anos,1,2
-Casa en Santiago,4,2023-06-01,220000.00,2,1,Inversion en una casa en Santiago Chile,3,3
-Oficina en Bogota,4,2023-06-30,260000.00,2,1,Inversion en una oficina en Bogota Colombia,3,3
-Solana,11,2023-07-15,3000.00,3,1,Inversion en Solana (SOL),1,4
-Avalanche,11,2023-08-25,2000.00,3,1,Inversion en Avalanche (AVAX),1,4
-Fondo de Energia Fidelity,21,2023-09-20,9500.00,2,1,Fondo mutuo enfocado en empresas de energia,1,5
-Fondo de Telecomunicaciones Vanguard,21,2023-10-15,8000.00,2,1,Fondo mutuo enfocado en telecomunicaciones,1,10
-ETF Schwab US Broad Market,22,2023-11-30,14000.00,2,1,ETF que replica el mercado amplio de EE.UU.,1,1
-ETF iShares Global Healthcare,22,2023-12-15,7000.00,3,1,ETF enfocado en empresas de salud a nivel global,1,7
-Acciones de AMD,1,2023-02-05,5000.00,3,1,Inversion en acciones de Advanced Micro Devices Inc.,1,1
-Acciones de IBM,1,2023-03-01,4000.00,3,1,Inversion en acciones de International Business Machines Corp.,1,1
-Bonos del Gobierno de Francia,2,2023-03-25,21000.00,1,1,Bonos del gobierno frances a 5 anos,2,2
-Bonos Corporativos de Google,2,2023-04-28,13000.00,2,1,Bonos corporativos de Alphabet Inc. (Google) con vencimiento a 4 anos,1,2
-Terreno en Medellin,4,2023-06-05,170000.00,2,1,Inversion en un terreno en Medellin Colombia,3,3
-Edificio en Quito,4,2023-07-01,240000.00,2,1,Inversion en un edificio en Quito Ecuador,3,3
-Chainlink,11,2023-07-20,2200.00,3,1,Inversion en Chainlink (LINK),1,4
-Uniswap,11,2023-08-30,1800.00,3,1,Inversion en Uniswap (UNI),1,4
-Fondo de Transporte BlackRock,21,2023-09-25,9000.00,2,1,Fondo mutuo enfocado en empresas de transporte,1,11
-Fondo de Bienes Raices Vanguard,21,2023-10-20,8500.00,2,1,Fondo mutuo enfocado en bienes raices,1,3
-ETF Vanguard FTSE All-World,22,2023-12-01,15000.00,2,1,ETF que replica el indice FTSE All-World,1,1
-ETF iShares Global Financials,22,2023-12-20,7500.00,3,1,ETF enfocado en empresas financieras a nivel global,1,12
-Acciones de Oracle,1,2023-02-10,6000.00,3,1,Inversion en acciones de Oracle Corporation,1,1
-Acciones de Cisco,1,2023-03-05,5500.00,3,1,Inversion en acciones de Cisco Systems Inc.,1,1
-Bonos del Gobierno de Reino Unido,2,2023-03-30,20000.00,1,1,Bonos del gobierno britanico a 10 anos,6,2
-Bonos Corporativos de NVIDIA,2,2023-04-30,12000.00,2,1,Bonos corporativos de NVIDIA con vencimiento a 5 anos,1,2
-Casa en Montevideo,4,2023-06-10,210000.00,2,1,Inversion en una casa en Montevideo Uruguay,3,3
-Oficina en Caracas,4,2023-07-05,230000.00,2,1,Inversion en una oficina en Caracas Venezuela,3,3
-Polygon,11,2023-07-25,2500.00,3,1,Inversion en Polygon (MATIC),1,4
-Algorand,11,2023-09-01,2000.00,3,1,Inversion en Algorand (ALGO),1,4
-Fondo de Tecnologia BlackRock,21,2023-09-30,10000.00,2,1,Fondo mutuo enfocado en empresas de tecnologia,1,1
-Fondo de Energia Vanguard,21,2023-10-25,9000.00,2,1,Fondo mutuo enfocado en empresas de energia,1,5
-ETF iShares Core S&P 500,22,2023-12-05,16000.00,2,1,ETF que replica el indice S&P 500,1,1
-ETF Vanguard FTSE Emerging Markets,22,2023-12-25,8000.00,3,1,ETF enfocado en mercados emergentes,1,6
-Acciones de Adobe,1,2023-02-15,7000.00,3,1,Inversion en acciones de Adobe Inc.,1,1
-Acciones de Salesforce,1,2023-03-10,6500.00,3,1,Inversion en acciones de Salesforce.com Inc.,1,1
-Bonos del Gobierno de Italia,2,2023-04-05,19000.00,1,1,Bonos del gobierno italiano a 7 anos,2,2
-Bonos Corporativos de Intel,2,2023-05-01,11000.00,2,1,Bonos corporativos de Intel con vencimiento a 4 anos,1,2
-Terreno en Guayaquil,4,2023-06-15,180000.00,2,1,Inversion en un terreno en Guayaquil Ecuador,3,3
-Edificio en Asuncion,4,2023-07-10,220000.00,2,1,Inversion en un edificio en Asuncion Paraguay,3,3
-Stellar,11,2023-07-30,2300.00,3,1,Inversion en Stellar (XLM),1,4
-VeChain,11,2023-09-05,1700.00,3,1,Inversion en VeChain (VET),1,4
-Fondo de Salud BlackRock,21,2023-10-01,9500.00,2,1,Fondo mutuo enfocado en empresas de salud,1,7
-Fondo de Bienes de Consumo Fidelity,21,2023-10-30,8500.00,2,1,Fondo mutuo enfocado en bienes de consumo,1,8
-ETF Schwab International Equity,22,2023-12-10,17000.00,2,1,ETF que replica el mercado internacional de acciones,1,1
-ETF iShares Global Real Estate,22,2023-12-30,9000.00,3,1,ETF enfocado en bienes raices a nivel global,1,3
-Acciones de PayPal,1,2023-02-20,8000.00,3,1,Inversion en acciones de PayPal Holdings Inc.,1,1
-Acciones de Shopify,1,2023-03-15,7500.00,3,1,Inversion en acciones de Shopify Inc.,1,1
-Bonos del Gobierno de Espana,2,2023-04-10,20000.00,1,1,Bonos del gobierno espanol a 10 anos,2,2
-Bonos Corporativos de AMD,2,2023-05-05,12000.00,2,1,Bonos corporativos de AMD con vencimiento a 5 anos,1,2
-Casa en San Jose,4,2023-06-20,230000.00,2,1,Inversion en una casa en San Jose Costa Rica,3,3
-Oficina en Panama,4,2023-07-15,250000.00,2,1,Inversion en una oficina en Ciudad de Panama Panama,3,3
-Tezos,11,2023-08-01,2400.00,3,1,Inversion en Tezos (XTZ),1,4
-Filecoin,11,2023-09-10,1900.00,3,1,Inversion en Filecoin (FIL),1,4
-Fondo de Infraestructura Fidelity,21,2023-10-05,10000.00,2,1,Fondo mutuo enfocado en infraestructura,1,9
-Fondo de Telecomunicaciones BlackRock,21,2023-11-01,9000.00,2,1,Fondo mutuo enfocado en telecomunicaciones,1,10
-ETF Vanguard Total International Stock,22,2023-12-15,18000.00,2,1,ETF que replica el mercado internacional de acciones,1,1
-ETF iShares Global Consumer Discretionary,22,2024-01-01,9500.00,3,1,ETF enfocado en bienes de consumo discrecional a nivel global,1,8
-Acciones de Square,1,2023-02-25,8500.00,3,1,Inversion en acciones de Square Inc.,1,1
-Acciones de Zoom,1,2023-03-20,8000.00,3,1,Inversion en acciones de Zoom Video Communications Inc.,1,1
-Bonos del Gobierno de Australia,2,2023-04-15,21000.00,1,1,Bonos del gobierno australiano a 10 anos,7,2
-Bonos Corporativos de PayPal,2,2023-05-10,13000.00,2,1,Bonos corporativos de PayPal con vencimiento a 5 anos,1,2
+Bonos del Tesoro de EE.UU.,2,2023-03-01,20000.00,1,2,Bonos del Tesoro a 10 anos,1,2
+Bonos Corporativos de Microsoft,2,2023-04-05,15000.00,2,2,Bonos corporativos de Microsoft con vencimiento a 5 anos,1,2
+Apartamento en Miami,4,2023-05-20,300000.00,2,3,Inversion en un apartamento en Miami Florida,1,3
+Oficina en Madrid,4,2023-06-15,250000.00,2,3,Inversion en una oficina en el centro de Madrid,2,3
+Bitcoin,11,2023-07-01,5000.00,3,4,Inversion en Bitcoin,1,4
+Ethereum,11,2023-08-10,3000.00,3,4,Inversion en Ethereum,1,4
+Fondo de Tecnologia Vanguard,21,2023-09-05,10000.00,2,5,Fondo mutuo enfocado en empresas de tecnologia,1,1
+Fondo de Energias Renovables BlackRock,21,2023-10-01,8000.00,2,5,Fondo mutuo enfocado en energias renovables,1,5
+ETF SPDR S&P 500,22,2023-11-15,12000.00,2,6,ETF que replica el indice S&P 500,1,1
+ETF iShares MSCI Emerging Markets,22,2023-12-01,7000.00,3,6,ETF enfocado en mercados emergentes,1,6
+Acciones de Amazon,1,2023-01-20,8000.00,3,7,Inversion en acciones de Amazon.com Inc.,1,1
+Acciones de Google,1,2023-02-15,7000.00,3,7,Inversion en acciones de Alphabet Inc. (Google),1,1
+Bonos del Gobierno de Alemania,2,2023-03-10,18000.00,1,8,Bonos del gobierno aleman a 5 anos,2,2
+Bonos Corporativos de Apple,2,2023-04-12,12000.00,2,8,Bonos corporativos de Apple con vencimiento a 3 anos,1,2
+Casa en Buenos Aires,4,2023-05-25,200000.00,2,9,Inversion en una casa en Buenos Aires Argentina,3,3
+Local Comercial en Barcelona,4,2023-06-20,180000.00,2,9,Inversion en un local comercial en Barcelona Espana,2,3
+Litecoin,11,2023-07-05,2000.00,3,10,Inversion en Litecoin,1,4
+Ripple,11,2023-08-15,1500.00,3,10,Inversion en Ripple (XRP),1,4
+Fondo de Salud Fidelity,21,2023-09-10,9000.00,2,11,Fondo mutuo enfocado en empresas de salud,1,7
+Fondo de Bienes de Consumo T. Rowe Price,21,2023-10-05,7500.00,2,11,Fondo mutuo enfocado en bienes de consumo,1,8
+ETF Vanguard Total Stock Market,22,2023-11-20,11000.00,2,12,ETF que replica el mercado total de acciones de EE.UU.,1,1
+ETF iShares Global Clean Energy,22,2023-12-05,6000.00,3,12,ETF enfocado en energias limpias a nivel global,1,5
+Acciones de Netflix,1,2023-01-25,6000.00,3,13,Inversion en acciones de Netflix Inc.,1,1
+Acciones de Meta (Facebook),1,2023-02-20,5500.00,3,13,Inversion en acciones de Meta Platforms Inc.,1,1
+Bonos del Gobierno de Japon,2,2023-03-15,22000.00,1,14,Bonos del gobierno japones a 7 anos,4,2
+Bonos Corporativos de Tesla,2,2023-04-18,10000.00,2,14,Bonos corporativos de Tesla con vencimiento a 4 anos,1,2
+Terreno en Cancun,4,2023-05-30,150000.00,2,15,Inversion en un terreno en Cancun Mexico,1,3
+Edificio en Lima,4,2023-06-25,280000.00,2,15,Inversion en un edificio en Lima Peru,3,3
+Cardano,11,2023-07-10,2500.00,3,16,Inversion en Cardano (ADA),1,4
+Polkadot,11,2023-08-20,1800.00,3,16,Inversion en Polkadot (DOT),1,4
+Fondo de Tecnologia T. Rowe Price,21,2023-09-15,8500.00,2,17,Fondo mutuo enfocado en empresas de tecnologia,1,1
+Fondo de Infraestructura BlackRock,21,2023-10-10,7000.00,2,17,Fondo mutuo enfocado en infraestructura,1,9
+ETF Invesco QQQ,22,2023-11-25,13000.00,2,18,ETF que replica el indice NASDAQ-100,1,1
+ETF iShares Global Tech,22,2023-12-10,6500.00,3,18,ETF enfocado en empresas de tecnologia a nivel global,1,1
+Acciones de NVIDIA,1,2023-01-30,9000.00,3,19,Inversion en acciones de NVIDIA Corporation,1,1
+Acciones de Intel,1,2023-02-25,4500.00,3,19,Inversion en acciones de Intel Corporation,1,1
+Bonos del Gobierno de Canada,2,2023-03-20,19000.00,1,20,Bonos del gobierno canadiense a 10 anos,5,2
+Bonos Corporativos de Amazon,2,2023-04-22,11000.00,2,20,Bonos corporativos de Amazon con vencimiento a 5 anos,1,2
+Casa en Santiago,4,2023-06-01,220000.00,2,21,Inversion en una casa en Santiago Chile,3,3
+Oficina en Bogota,4,2023-06-30,260000.00,2,21,Inversion en una oficina en Bogota Colombia,3,3
+Solana,11,2023-07-15,3000.00,3,22,Inversion en Solana (SOL),1,4
+Avalanche,11,2023-08-25,2000.00,3,22,Inversion en Avalanche (AVAX),1,4
+Fondo de Energia Fidelity,21,2023-09-20,9500.00,2,23,Fondo mutuo enfocado en empresas de energia,1,5
+Fondo de Telecomunicaciones Vanguard,21,2023-10-15,8000.00,2,23,Fondo mutuo enfocado en telecomunicaciones,1,10
+ETF Schwab US Broad Market,22,2023-11-30,14000.00,2,24,ETF que replica el mercado amplio de EE.UU.,1,1
+ETF iShares Global Healthcare,22,2023-12-15,7000.00,3,24,ETF enfocado en empresas de salud a nivel global,1,7
+Acciones de AMD,1,2023-02-05,5000.00,3,25,Inversion en acciones de Advanced Micro Devices Inc.,1,1
+Acciones de IBM,1,2023-03-01,4000.00,3,25,Inversion en acciones de International Business Machines Corp.,1,1
+Bonos del Gobierno de Francia,2,2023-03-25,21000.00,1,26,Bonos del gobierno frances a 5 anos,2,2
+Bonos Corporativos de Google,2,2023-04-28,13000.00,2,26,Bonos corporativos de Alphabet Inc. (Google) con vencimiento a 4 anos,1,2
+Terreno en Medellin,4,2023-06-05,170000.00,2,27,Inversion en un terreno en Medellin Colombia,3,3
+Edificio en Quito,4,2023-07-01,240000.00,2,27,Inversion en un edificio en Quito Ecuador,3,3
+Chainlink,11,2023-07-20,2200.00,3,28,Inversion en Chainlink (LINK),1,4
+Uniswap,11,2023-08-30,1800.00,3,28,Inversion en Uniswap (UNI),1,4
+Fondo de Transporte BlackRock,21,2023-09-25,9000.00,2,29,Fondo mutuo enfocado en empresas de transporte,1,11
+Fondo de Bienes Raices Vanguard,21,2023-10-20,8500.00,2,29,Fondo mutuo enfocado en bienes raices,1,3
+ETF Vanguard FTSE All-World,22,2023-12-01,15000.00,2,30,ETF que replica el indice FTSE All-World,1,1
+ETF iShares Global Financials,22,2023-12-20,7500.00,3,30,ETF enfocado en empresas financieras a nivel global,1,12
+Acciones de Oracle,1,2023-02-10,6000.00,3,31,Inversion en acciones de Oracle Corporation,1,1
+Acciones de Cisco,1,2023-03-05,5500.00,3,31,Inversion en acciones de Cisco Systems Inc.,1,1
+Bonos del Gobierno de Reino Unido,2,2023-03-30,20000.00,1,32,Bonos del gobierno britanico a 10 anos,6,2
+Bonos Corporativos de NVIDIA,2,2023-04-30,12000.00,2,32,Bonos corporativos de NVIDIA con vencimiento a 5 anos,1,2
+Casa en Montevideo,4,2023-06-10,210000.00,2,33,Inversion en una casa en Montevideo Uruguay,3,3
+Oficina en Caracas,4,2023-07-05,230000.00,2,33,Inversion en una oficina en Caracas Venezuela,3,3
+Polygon,11,2023-07-25,2500.00,3,34,Inversion en Polygon (MATIC),1,4
+Algorand,11,2023-09-01,2000.00,3,34,Inversion en Algorand (ALGO),1,4
+Fondo de Tecnologia BlackRock,21,2023-09-30,10000.00,2,35,Fondo mutuo enfocado en empresas de tecnologia,1,1
+Fondo de Energia Vanguard,21,2023-10-25,9000.00,2,35,Fondo mutuo enfocado en empresas de energia,1,5
+ETF iShares Core S&P 500,22,2023-12-05,16000.00,2,36,ETF que replica el indice S&P 500,1,1
+ETF Vanguard FTSE Emerging Markets,22,2023-12-25,8000.00,3,36,ETF enfocado en mercados emergentes,1,6
+Acciones de Adobe,1,2023-02-15,7000.00,3,37,Inversion en acciones de Adobe Inc.,1,1
+Acciones de Salesforce,1,2023-03-10,6500.00,3,37,Inversion en acciones de Salesforce.com Inc.,1,1
+Bonos del Gobierno de Italia,2,2023-04-05,19000.00,1,38,Bonos del gobierno italiano a 7 anos,2,2
+Bonos Corporativos de Intel,2,2023-05-01,11000.00,2,38,Bonos corporativos de Intel con vencimiento a 4 anos,1,2
+Terreno en Guayaquil,4,2023-06-15,180000.00,2,39,Inversion en un terreno en Guayaquil Ecuador,3,3
+Edificio en Asuncion,4,2023-07-10,220000.00,2,39,Inversion en un edificio en Asuncion Paraguay,3,3
+Stellar,11,2023-07-30,2300.00,3,40,Inversion en Stellar (XLM),1,4
+VeChain,11,2023-09-05,1700.00,3,40,Inversion en VeChain (VET),1,4
+Fondo de Salud BlackRock,21,2023-10-01,9500.00,2,41,Fondo mutuo enfocado en empresas de salud,1,7
+Fondo de Bienes de Consumo Fidelity,21,2023-10-30,8500.00,2,41,Fondo mutuo enfocado en bienes de consumo,1,8
+ETF Schwab International Equity,22,2023-12-10,17000.00,2,42,ETF que replica el mercado internacional de acciones,1,1
+ETF iShares Global Real Estate,22,2023-12-30,9000.00,3,42,ETF enfocado en bienes raices a nivel global,1,3
+Acciones de PayPal,1,2023-02-20,8000.00,3,43,Inversion en acciones de PayPal Holdings Inc.,1,1
+Acciones de Shopify,1,2023-03-15,7500.00,3,43,Inversion en acciones de Shopify Inc.,1,1
+Bonos del Gobierno de Espana,2,2023-04-10,20000.00,1,44,Bonos del gobierno espanol a 10 anos,2,2
+Bonos Corporativos de AMD,2,2023-05-05,12000.00,2,44,Bonos corporativos de AMD con vencimiento a 5 anos,1,2
+Casa en San Jose,4,2023-06-20,230000.00,2,45,Inversion en una casa en San Jose Costa Rica,3,3
+Oficina en Panama,4,2023-07-15,250000.00,2,45,Inversion en una oficina en Ciudad de Panama Panama,3,3
+Tezos,11,2023-08-01,2400.00,3,46,Inversion en Tezos (XTZ),1,4
+Filecoin,11,2023-09-10,1900.00,3,46,Inversion en Filecoin (FIL),1,4
+Fondo de Infraestructura Fidelity,21,2023-10-05,10000.00,2,47,Fondo mutuo enfocado en infraestructura,1,9
+Fondo de Telecomunicaciones BlackRock,21,2023-11-01,9000.00,2,47,Fondo mutuo enfocado en telecomunicaciones,1,10
+ETF Vanguard Total International Stock,22,2023-12-15,18000.00,2,48,ETF que replica el mercado internacional de acciones,1,1
+ETF iShares Global Consumer Discretionary,22,2024-01-01,9500.00,3,48,ETF enfocado en bienes de consumo discrecional a nivel global,1,8
+Acciones de Square,1,2023-02-25,8500.00,3,49,Inversion en acciones de Square Inc.,1,1
+Acciones de Zoom,1,2023-03-20,8000.00,3,49,Inversion en acciones de Zoom Video Communications Inc.,1,1
+Bonos del Gobierno de Australia,2,2023-04-15,21000.00,1,50,Bonos del gobierno australiano a 10 anos,7,2
+Bonos Corporativos de PayPal,2,2023-05-10,13000.00,2,50,Bonos corporativos de PayPal con vencimiento a 5 anos,1,2
