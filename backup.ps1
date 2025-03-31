@@ -17,7 +17,7 @@ $backupFileComp = "$backupDir/${dbName}_${timestamp}.sql.gz"
 docker exec $containerName sh -c "mysqldump -u $dbUser -p$dbPass $dbName" > $backupFile
 
 # Generar backup comprimido
-docker exec $containerName sh -c "mysqldump -u $dbUser -p$dbPass $dbName" > $backupFileComp
+docker exec $containerName sh -c "mysqldump -u $dbUser -p$dbPass $dbName | gzip -9" > $backupFileComp
 
 
 # Verificar creación del archivo
